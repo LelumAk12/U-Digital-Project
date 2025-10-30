@@ -1,7 +1,8 @@
-import React from 'react';
-import { CheckIcon, BoxIcon } from 'lucide-react';
+import type { ComponentType, SVGProps } from 'react';
+import { CheckIcon } from 'lucide-react';
+
 interface PricingCardProps {
-  icon: BoxIcon;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
   title: string;
   price: string;
   period: string;

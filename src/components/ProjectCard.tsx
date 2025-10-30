@@ -1,4 +1,3 @@
-import React from 'react';
 import { ChevronRightIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 interface ProjectCardProps {

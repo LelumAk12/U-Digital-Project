@@ -1,8 +1,9 @@
-import React from 'react';
-import { ChevronRightIcon, BoxIcon } from 'lucide-react';
+import type { ComponentType, SVGProps } from 'react';
+import { ChevronRightIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
+
 interface ServiceCardProps {
-  icon: BoxIcon;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
   title: string;
   description: string;
   features: string[];
