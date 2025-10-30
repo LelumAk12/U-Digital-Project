@@ -1,3 +1,4 @@
+import React from 'react';
 import { CheckCircle2Icon } from 'lucide-react';
 export function AboutSection() {
   const achievements = ['Strategic brand positioning and messaging', 'Award-winning creative campaigns', 'Data-driven marketing approaches', 'End-to-end project management'];

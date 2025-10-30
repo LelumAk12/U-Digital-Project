@@ -4,22 +4,22 @@ export function WorkSection() {
   const [activeTab, setActiveTab] = useState('All Projects');
   const tabs = ['All Projects', 'Branding', 'Digital Marketing', 'Web Design', 'Campaigns'];
   const projects = [{
-    image: "/2.png",
+    image: "/2.jpg",
     title: 'TechStart Rebranding',
     description: 'Complete brand identity redesign for a growing tech startup.',
     tags: ['brand identity', 'logo design', 'guidelines']
   }, {
-    image: "/3.png",
+    image: "/3.jpg",
     title: 'TechStart Rebranding',
     description: 'Complete brand identity redesign for a growing tech startup.',
     tags: ['brand identity', 'logo design', 'guidelines']
   }, {
-    image: "/4.png",
+    image: "/4.jpg",
     title: 'TechStart Rebranding',
     description: 'Complete brand identity redesign for a growing tech startup.',
     tags: ['brand identity', 'logo design', 'guidelines']
   }, {
-    image: "/2.png",
+    image: "/2.jpg",
     title: 'TechStart Rebranding',
     description: 'Complete brand identity redesign for a growing tech startup.',
     tags: ['brand identity', 'logo design', 'guidelines']
