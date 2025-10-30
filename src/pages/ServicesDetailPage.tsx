@@ -1,8 +1,6 @@
-import React from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { CheckIcon, VideoIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
-import { Link } from 'react-router-dom';
 export function ServicesDetailPage() {
   const whatsIncluded = ['Live Streaming Events', 'Corporate Documentary Production', 'Promotional Video Creation', 'Advertising Video Production', 'Event Coverage & Highlights', 'Professional Interview Setup'];
   const processSteps = ['Initial Consultation & Concept Development', 'Pre-production Planning & Scripting', 'Professional Filming with HD Equipment', 'Post-production Editing & Color Grading', 'Final Delivery in Multiple Formats'];

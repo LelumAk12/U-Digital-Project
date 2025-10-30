@@ -1,4 +1,3 @@
-import React from 'react';
 import { CheckCircle2Icon } from 'lucide-react';
 export function AboutSection() {
   const achievements = ['Strategic brand positioning and messaging', 'Award-winning creative campaigns', 'Data-driven marketing approaches', 'End-to-end project management'];
@@ -37,7 +36,7 @@ export function AboutSection() {
             </p>
           </div>
           <div className="relative">
-            <img src="/1.png" alt="Team collaboration" className="rounded-lg shadow-xl w-full" />
+            <img src="/1.jpg" alt="Team collaboration" className="rounded-lg shadow-xl w-full" />
           </div>
         </div>
       </div>
