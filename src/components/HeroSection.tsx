@@ -1,4 +1,3 @@
-import React from 'react';
 import { PlayCircleIcon } from 'lucide-react';
 export function HeroSection() {
   return <section className="w-full bg-gradient-to-br from-teal-900 to-teal-700 text-white py-24 px-6">

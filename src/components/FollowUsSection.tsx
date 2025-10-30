@@ -1,4 +1,3 @@
-import React from 'react';
 import { YoutubeIcon, TwitchIcon, FacebookIcon, LinkedinIcon } from 'lucide-react';
 export function FollowUsSection() {
   const socialLinks = [{

@@ -1,4 +1,3 @@
-import React from 'react';
 import { ServiceCard } from './ServiceCard';
 import { VideoIcon, CameraIcon, TrendingUpIcon, MicIcon, PenToolIcon, TvIcon } from 'lucide-react';
 export function ServicesSection() {

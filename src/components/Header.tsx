@@ -1,4 +1,3 @@
-import React from 'react';
 import { PhoneIcon, MailIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 export function Header() {

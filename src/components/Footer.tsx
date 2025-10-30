@@ -1,4 +1,3 @@
-import React from 'react';
 export function Footer() {
   const services = ['Live Streaming', 'Profile Video', 'Interview Setup', 'Documentary', 'Videography', 'Photography', 'Digital', 'Marketing', 'Advertising', 'Video', 'FB Post Design', 'CV Design'];
   const company = ['About Us', 'Our Portfolio', 'Client Reviews', 'Career', 'Opportunities', 'Contact Us', 'Get Quote'];

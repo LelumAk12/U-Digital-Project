@@ -1,4 +1,3 @@
-import React from 'react';
 import { PhoneIcon, MailIcon, ClockIcon } from 'lucide-react';
 export function ContactSection() {
   return <section className="w-full bg-gray-50 py-20 px-6">

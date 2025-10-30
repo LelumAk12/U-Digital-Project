@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 export function CTASection() {
   return <section className="w-full bg-gradient-to-br from-teal-900 to-teal-700 text-white py-16 px-6">
