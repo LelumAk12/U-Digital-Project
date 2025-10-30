@@ -39,27 +39,27 @@ export function OrderForm({
       <section className="w-full py-12 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="mb-8">
-            <button onClick={onBack} className="flex items-center gap-2 text-teal-600 hover:text-teal-700 mb-4">
+            <button onClick={onBack} className="flex items-center gap-2 text-brand-teal hover:text-brand-teal-dark mb-4">
               <ArrowLeftIcon className="w-4 h-4" />
               Back to Packages
             </button>
             <div className="flex items-center justify-center gap-4 mb-8">
-              <div className={`flex items-center justify-center w-12 h-12 rounded-full ${step >= 1 ? 'bg-teal-600 text-white' : 'bg-gray-200 text-gray-600'}`}>
+              <div className={`flex items-center justify-center w-12 h-12 rounded-full ${step >= 1 ? 'bg-brand-teal text-white' : 'bg-gray-200 text-gray-600'}`}>
                 1
               </div>
-              <div className={`h-0.5 w-24 ${step >= 2 ? 'bg-teal-600' : 'bg-gray-200'}`}></div>
-              <div className={`flex items-center justify-center w-12 h-12 rounded-full ${step >= 2 ? 'bg-teal-600 text-white' : 'bg-gray-200 text-gray-600'}`}>
+              <div className={`h-0.5 w-24 ${step >= 2 ? 'bg-brand-teal' : 'bg-gray-200'}`}></div>
+              <div className={`flex items-center justify-center w-12 h-12 rounded-full ${step >= 2 ? 'bg-brand-teal text-white' : 'bg-gray-200 text-gray-600'}`}>
                 2
               </div>
-              <div className={`h-0.5 w-24 ${step >= 3 ? 'bg-teal-600' : 'bg-gray-200'}`}></div>
-              <div className={`flex items-center justify-center w-12 h-12 rounded-full ${step >= 3 ? 'bg-teal-600 text-white' : 'bg-gray-200 text-gray-600'}`}>
+              <div className={`h-0.5 w-24 ${step >= 3 ? 'bg-brand-teal' : 'bg-gray-200'}`}></div>
+              <div className={`flex items-center justify-center w-12 h-12 rounded-full ${step >= 3 ? 'bg-brand-teal text-white' : 'bg-gray-200 text-gray-600'}`}>
                 3
               </div>
             </div>
           </div>
           {step === 1 && <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 bg-white border border-gray-200 rounded-lg p-8">
-                <h2 className="text-2xl font-bold text-teal-900 mb-6">
+                <h2 className="text-2xl font-bold text-brand-dark mb-6">
                   Contact Information
                 </h2>
                 <p className="text-gray-600 text-sm mb-6">
@@ -71,38 +71,38 @@ export function OrderForm({
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         First Name *
                       </label>
-                      <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" />
+                      <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Last Name *
                       </label>
-                      <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" />
+                      <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Email Address *
                     </label>
-                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" />
+                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Phone Number
                     </label>
-                    <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" />
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Company Name *
                     </label>
-                    <input type="text" name="company" value={formData.company} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" />
+                    <input type="text" name="company" value={formData.company} onChange={handleInputChange} required className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       Industry
                     </label>
-                    <select name="industry" value={formData.industry} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                    <select name="industry" value={formData.industry} onChange={handleInputChange} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent">
                       <option value="">Select an industry</option>
                       <option value="technology">Technology</option>
                       <option value="healthcare">Healthcare</option>
@@ -111,25 +111,25 @@ export function OrderForm({
                       <option value="other">Other</option>
                     </select>
                   </div>
-                  <button type="submit" className="w-full bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 font-medium">
+                  <button type="submit" className="w-full bg-brand-teal text-white py-3 rounded-lg hover:bg-brand-teal-dark font-medium">
                     Continue to Review
                   </button>
                 </form>
               </div>
               <div className="bg-gray-50 p-6 rounded-lg h-fit">
-                <h3 className="font-bold text-teal-900 mb-4">
+                <h3 className="font-bold text-brand-dark mb-4">
                   {selectedPackage.title}
                 </h3>
                 <ul className="space-y-2 mb-4">
                   {selectedPackage.features.slice(0, 6).map((feature: string, index: number) => <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-                        <CheckIcon className="w-4 h-4 text-teal-600 flex-shrink-0 mt-0.5" />
+                        <CheckIcon className="w-4 h-4 text-brand-teal flex-shrink-0 mt-0.5" />
                         <span>{feature}</span>
                       </li>)}
                 </ul>
                 <div className="border-t border-gray-300 pt-4 mt-4">
                   <div className="flex justify-between mb-2">
                     <span className="text-gray-600">Package Price</span>
-                    <span className="font-bold text-teal-900">
+                    <span className="font-bold text-brand-dark">
                       {selectedPackage.price} LKR
                     </span>
                   </div>
@@ -138,7 +138,7 @@ export function OrderForm({
                   </div>
                   <div className="flex justify-between font-bold text-lg">
                     <span>Total</span>
-                    <span className="text-teal-900">
+                    <span className="text-brand-dark">
                       {selectedPackage.price} LKR
                     </span>
                   </div>
@@ -147,40 +147,42 @@ export function OrderForm({
             </div>}
           {step === 2 && <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 bg-white border border-gray-200 rounded-lg p-8">
-                <h2 className="text-2xl font-bold text-teal-900 mb-6">
+                <h2 className="text-2xl font-bold text-brand-dark mb-6">
                   Project Details
                 </h2>
                 <p className="text-gray-600 text-sm mb-6">
                   Share more about your brand and project needs
                 </p>
                 <div className="bg-gray-50 p-6 rounded-lg mb-6">
-                  <h3 className="font-bold text-teal-900 mb-4">
+                  <h3 className="font-bold text-brand-dark mb-4">
                     Project Requirements *
                   </h3>
-                  <textarea name="projectRequirements" value={formData.projectRequirements} onChange={handleInputChange} rows={6} required placeholder="Tell us about your project goals, timeline, and any specific requirements..." className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"></textarea>
+                  <textarea name="projectRequirements" value={formData.projectRequirements} onChange={handleInputChange} rows={6} required placeholder="Tell us about your project goals, timeline, and any specific requirements..." className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent"></textarea>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-lg mb-6">
-                  <h3 className="font-bold text-teal-900 mb-4">
+                  <h3 className="font-bold text-brand-dark mb-4">
                     What's Included:
                   </h3>
                   <ul className="space-y-2">
                     {selectedPackage.features.map((feature: string, index: number) => <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-                          <CheckIcon className="w-4 h-4 text-teal-600 flex-shrink-0 mt-0.5" />
+                          <CheckIcon className="w-4 h-4 text-brand-teal flex-shrink-0 mt-0.5" />
                           <span>{feature}</span>
                         </li>)}
                   </ul>
                 </div>
                 <div className="flex gap-4">
-                  <button onClick={() => setStep(1)} className="flex-1 bg-white text-teal-600 border border-teal-600 py-3 rounded-lg hover:bg-teal-50 font-medium">
+                  <button onClick={() => setStep(1)} className="flex-1 bg-white text-brand-teal border border-brand-teal py-3 rounded-lg hover:bg-brand-cyan-light font-medium">
                     Back
                   </button>
-                  <button onClick={() => setStep(3)} className="flex-1 bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 font-medium">
+                  <button onClick={() => setStep(3)} className="flex-1 bg-brand-teal text-white py-3 rounded-lg hover:bg-brand-teal-dark font-medium">
                     Continue to Payment
                   </button>
                 </div>
               </div>
               <div className="bg-gray-50 p-6 rounded-lg h-fit">
-                <h3 className="font-bold text-teal-900 mb-4">Order Summary</h3>
+                <h3 className="font-bold text-brand-dark mb-4">
+                  Order Summary
+                </h3>
                 <div className="space-y-2 mb-4 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Client:</span>
@@ -202,13 +204,13 @@ export function OrderForm({
                 <div className="border-t border-gray-300 pt-4 mt-4">
                   <div className="flex justify-between mb-2">
                     <span className="text-gray-600">Package Price</span>
-                    <span className="font-bold text-teal-900">
+                    <span className="font-bold text-brand-dark">
                       {selectedPackage.price} LKR
                     </span>
                   </div>
                   <div className="flex justify-between font-bold text-lg">
                     <span>Total</span>
-                    <span className="text-teal-900">
+                    <span className="text-brand-dark">
                       {selectedPackage.price} LKR
                     </span>
                   </div>
@@ -217,14 +219,14 @@ export function OrderForm({
             </div>}
           {step === 3 && <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 bg-white border border-gray-200 rounded-lg p-8">
-                <h2 className="text-2xl font-bold text-teal-900 mb-6">
+                <h2 className="text-2xl font-bold text-brand-dark mb-6">
                   Payment Information
                 </h2>
                 <p className="text-gray-600 text-sm mb-6">
                   Securely complete your payment powered by Stripe
                 </p>
                 <div className="bg-gray-50 p-6 rounded-lg mb-6">
-                  <h3 className="font-bold text-teal-900 mb-4">
+                  <h3 className="font-bold text-brand-dark mb-4">
                     Secure Payment
                   </h3>
                   <div className="space-y-4">
@@ -232,33 +234,33 @@ export function OrderForm({
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Card Number
                       </label>
-                      <input type="text" placeholder="1234 5678 9012 3456" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" />
+                      <input type="text" placeholder="1234 5678 9012 3456" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Expiry Date
                         </label>
-                        <input type="text" placeholder="MM/YY" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" />
+                        <input type="text" placeholder="MM/YY" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           CVV
                         </label>
-                        <input type="text" placeholder="123" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" />
+                        <input type="text" placeholder="123" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Cardholder Name
                       </label>
-                      <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" />
+                      <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                     </div>
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Country
                       </label>
-                      <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                      <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent">
                         <option>Sri Lanka</option>
                         <option>India</option>
                         <option>United States</option>
@@ -268,7 +270,7 @@ export function OrderForm({
                       <label className="block text-sm font-medium text-gray-700 mb-2">
                         Postal Code
                       </label>
-                      <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent" />
+                      <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                     </div>
                   </div>
                 </div>
@@ -277,10 +279,10 @@ export function OrderForm({
                   your payment details.
                 </p>
                 <div className="flex gap-4">
-                  <button onClick={() => setStep(2)} className="flex-1 bg-white text-teal-600 border border-teal-600 py-3 rounded-lg hover:bg-teal-50 font-medium">
+                  <button onClick={() => setStep(2)} className="flex-1 bg-white text-brand-teal border border-brand-teal py-3 rounded-lg hover:bg-brand-cyan-light font-medium">
                     Back to Review
                   </button>
-                  <button onClick={() => alert('Payment processing would happen here!')} className="flex-1 bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 font-medium">
+                  <button onClick={() => alert('Payment processing would happen here!')} className="flex-1 bg-brand-teal text-white py-3 rounded-lg hover:bg-brand-teal-dark font-medium">
                     Pay {selectedPackage.price} LKR
                   </button>
                 </div>
@@ -290,7 +292,9 @@ export function OrderForm({
                 </p>
               </div>
               <div className="bg-gray-50 p-6 rounded-lg h-fit">
-                <h3 className="font-bold text-teal-900 mb-4">Order Summary</h3>
+                <h3 className="font-bold text-brand-dark mb-4">
+                  Order Summary
+                </h3>
                 <div className="space-y-2 mb-4 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-600">Client:</span>
@@ -314,13 +318,13 @@ export function OrderForm({
                 <div className="border-t border-gray-300 pt-4 mt-4">
                   <div className="flex justify-between mb-2">
                     <span className="text-gray-600">Package Price</span>
-                    <span className="font-bold text-teal-900">
+                    <span className="font-bold text-brand-dark">
                       {selectedPackage.price} LKR
                     </span>
                   </div>
                   <div className="flex justify-between font-bold text-lg">
                     <span>Total</span>
-                    <span className="text-teal-900">
+                    <span className="text-brand-dark">
                       {selectedPackage.price} LKR
                     </span>
                   </div>

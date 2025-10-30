@@ -1,8 +1,9 @@
+import React from 'react';
 export function Footer() {
   const services = ['Live Streaming', 'Profile Video', 'Interview Setup', 'Documentary', 'Videography', 'Photography', 'Digital', 'Marketing', 'Advertising', 'Video', 'FB Post Design', 'CV Design'];
   const company = ['About Us', 'Our Portfolio', 'Client Reviews', 'Career', 'Opportunities', 'Contact Us', 'Get Quote'];
   const followUs = ['YouTube', 'Channel', 'TikTok Page', 'Facebook Page', 'Instagram', 'LinkedIn', 'WhatsApp'];
-  return <footer className="w-full bg-teal-950 text-white py-12 px-6">
+  return <footer className="w-full bg-brand-dark text-white py-12 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
@@ -38,7 +39,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-teal-800 pt-6 text-center text-sm text-gray-400">
+        <div className="border-t border-brand-teal-dark pt-6 text-center text-sm text-gray-400">
           <p>
             2025 © All Rights Reserved | U Digital Expert | Designed &
             Developed by EVER EFFICIENT Business Management (Pvt) Ltd.

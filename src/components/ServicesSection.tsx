@@ -1,3 +1,4 @@
+import React from 'react';
 import { ServiceCard } from './ServiceCard';
 import { VideoIcon, CameraIcon, TrendingUpIcon, MicIcon, PenToolIcon, TvIcon } from 'lucide-react';
 export function ServicesSection() {
@@ -41,10 +42,10 @@ export function ServicesSection() {
   return <section className="w-full bg-white py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-teal-900 mb-4 flex items-center justify-center gap-4">
-            <span className="w-16 h-0.5 bg-teal-500"></span>
+          <h2 className="text-3xl font-bold text-brand-dark mb-4 flex items-center justify-center gap-4">
+            <span className="w-16 h-0.5 bg-brand-teal"></span>
             OUR SERVICES
-            <span className="w-16 h-0.5 bg-teal-500"></span>
+            <span className="w-16 h-0.5 bg-brand-teal"></span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Professional videography, photography and digital marketing services
