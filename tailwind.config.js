@@ -12,6 +12,8 @@ export default {content: [
         'brand-cyan-light': '#AEDDE5',
         'brand-maroon': '#8B0000',
         'brand-blue': '#1E40AF',
+        'brand-icon-dark': '#3A4A5C',
+        'brand-icon-purple': '#5D4A60',
       },
     },
   },

@@ -76,63 +76,67 @@ export function OrderForm({
       }
     }
   };
-  const PackageSummary = () => <div className="bg-white border-2 border-gray-200 rounded-lg p-6 h-fit sticky top-6">
-      <div className="flex items-start gap-4 mb-6">
-        <div className="w-16 h-16 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center flex-shrink-0">
+  const PackageSummary = () => <div className="bg-white border-2 border-gray-200 rounded-lg p-4 sm:p-6 lg:h-fit lg:sticky lg:top-6">
+      <div className="flex items-start gap-3 sm:gap-4 mb-4 sm:mb-6">
+        <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center flex-shrink-0">
           {createElement(selectedPackage.icon, {
-          className: 'w-8 h-8 text-white'
+          className: 'w-6 h-6 sm:w-8 sm:h-8 text-white'
         })}
         </div>
         <div>
-          <h3 className="text-xl font-bold text-brand-dark mb-1">
+          <h3 className="text-lg sm:text-xl font-bold text-brand-dark mb-1">
             {selectedPackage.title}
           </h3>
-          <p className="text-sm text-gray-600">{selectedPackage.description}</p>
+          <p className="text-xs sm:text-sm text-gray-600">
+            {selectedPackage.description}
+          </p>
         </div>
       </div>
-      <ul className="space-y-3 mb-6">
-        {selectedPackage.features.map((feature: string, index: number) => <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-            <CheckIcon className="w-4 h-4 text-brand-teal flex-shrink-0 mt-0.5" />
+      <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+        {selectedPackage.features.map((feature: string, index: number) => <li key={index} className="flex items-start gap-2 text-xs sm:text-sm text-gray-700">
+            <CheckIcon className="w-3 h-3 sm:w-4 sm:h-4 text-brand-teal flex-shrink-0 mt-0.5" />
             <span>{feature}</span>
           </li>)}
       </ul>
       <div className="border-t border-gray-300 pt-4">
         <div className="flex justify-between mb-2">
-          <span className="text-gray-600">Package Price</span>
-          <span className="font-bold text-brand-dark">
+          <span className="text-sm sm:text-base text-gray-600">
+            Package Price
+          </span>
+          <span className="text-sm sm:text-base font-bold text-brand-dark">
             {selectedPackage.price} LKR
           </span>
         </div>
         <div className="text-xs text-gray-500 mb-4">
           {selectedPackage.period}
         </div>
-        <div className="flex justify-between font-bold text-lg">
+        <div className="flex justify-between font-bold text-base sm:text-lg">
           <span>Total</span>
           <span className="text-brand-dark">{selectedPackage.price} LKR</span>
         </div>
       </div>
     </div>;
-  return <section className="w-full py-12 px-6">
+  return <section className="w-full py-8 sm:py-12 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-8">
-          <button onClick={onBack} className="flex items-center gap-2 text-brand-teal hover:text-brand-teal-dark mb-4">
+        <div className="mb-6 sm:mb-8">
+          <button onClick={onBack} className="flex items-center gap-2 text-brand-teal hover:text-brand-teal-dark mb-4 text-sm sm:text-base">
             <ArrowLeftIcon className="w-4 h-4" />
             Back to Packages
           </button>
-          <div className="flex items-center justify-center gap-4 mb-8">
-            <div className={`flex items-center justify-center w-12 h-12 rounded-full ${step >= 1 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
+          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 overflow-x-auto pb-2">
+            <div className={`flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 rounded-full text-sm sm:text-base ${step >= 1 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
               1
             </div>
-            <div className={`h-0.5 w-16 ${step >= 2 ? 'bg-gradient-to-r from-brand-maroon to-brand-blue' : 'bg-gray-200'}`}></div>
-            <div className={`flex items-center justify-center w-12 h-12 rounded-full ${step >= 2 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
+            <div className={`h-0.5 w-8 sm:w-16 ${step >= 2 ? 'bg-gradient-to-r from-brand-maroon to-brand-blue' : 'bg-gray-200'}`}></div>
+            <div className={`flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 rounded-full text-sm sm:text-base ${step >= 2 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
               2
             </div>
-            <div className={`h-0.5 w-16 ${step >= 3 ? 'bg-gradient-to-r from-brand-maroon to-brand-blue' : 'bg-gray-200'}`}></div>
-            <div className={`flex items-center justify-center w-12 h-12 rounded-full ${step >= 3 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
+            <div className={`h-0.5 w-8 sm:w-16 ${step >= 3 ? 'bg-gradient-to-r from-brand-maroon to-brand-blue' : 'bg-gray-200'}`}></div>
+            <div className={`flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 rounded-full text-sm sm:text-base ${step >= 3 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
               3
             </div>
-            <div className={`h-0.5 w-16 ${step >= 4 ? 'bg-gradient-to-r from-brand-maroon to-brand-blue' : 'bg-gray-200'}`}></div>
-            <div className={`flex items-center justify-center w-12 h-12 rounded-full ${step >= 4 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
+            <div className={`h-0.5 w-8 sm:w-16 ${step >= 4 ? 'bg-gradient-to-r from-brand-maroon to-brand-blue' : 'bg-gray-200'}`}></div>
+            <div className={`flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 rounded-full text-sm sm:text-base ${step >= 4 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
               4
             </div>
           </div>
@@ -210,7 +214,7 @@ export function OrderForm({
                       {errors.industry}
                     </p>}
                 </div>
-                <button type="submit" className="w-full bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-3 rounded-lg hover:opacity-90 font-medium">
+                <button type="submit" className="w-full bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium text-sm sm:text-base">
                   Continue to Project Details
                 </button>
               </form>
@@ -234,11 +238,11 @@ export function OrderForm({
                     {errors.projectRequirements}
                   </p>}
               </div>
-              <div className="flex gap-4">
-                <button onClick={() => setStep(1)} className="flex-1 bg-white text-brand-teal border border-brand-teal py-3 rounded-lg hover:bg-brand-cyan-light font-medium">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <button onClick={() => setStep(1)} className="w-full sm:flex-1 bg-white text-brand-teal border border-brand-teal py-2.5 sm:py-3 rounded-lg hover:bg-brand-cyan-light font-medium text-sm sm:text-base">
                   Back
                 </button>
-                <button onClick={handleSubmit} className="flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-3 rounded-lg hover:opacity-90 font-medium">
+                <button onClick={handleSubmit} className="w-full sm:flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium text-sm sm:text-base">
                   Continue to Order Summary
                 </button>
               </div>
@@ -296,7 +300,7 @@ export function OrderForm({
                     Selected Package
                   </h3>
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center flex-shrink-0">
                       {createElement(selectedPackage.icon, {
                     className: 'w-6 h-6 text-white'
                   })}
@@ -339,70 +343,70 @@ export function OrderForm({
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4 mt-6">
-                <button onClick={() => setStep(2)} className="flex-1 bg-white text-brand-teal border border-brand-teal py-3 rounded-lg hover:bg-brand-cyan-light font-medium">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6">
+                <button onClick={() => setStep(2)} className="w-full sm:flex-1 bg-white text-brand-teal border border-brand-teal py-2.5 sm:py-3 rounded-lg hover:bg-brand-cyan-light font-medium text-sm sm:text-base">
                   Back to Project Details
                 </button>
-                <button onClick={() => setStep(4)} className="flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-3 rounded-lg hover:opacity-90 font-medium">
+                <button onClick={() => setStep(4)} className="w-full sm:flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium text-sm sm:text-base">
                   Proceed to Payment
                 </button>
               </div>
             </div>
           </div>}
-        {step === 4 && <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="lg:col-span-2 bg-white border border-gray-200 rounded-lg p-8">
-              <h2 className="text-2xl font-bold text-brand-dark mb-6">
+        {step === 4 && <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="order-2 lg:order-1 lg:col-span-2 bg-white border border-gray-200 rounded-lg p-4 sm:p-6 md:p-8">
+              <h2 className="text-xl sm:text-2xl font-bold text-brand-dark mb-4 sm:mb-6">
                 Payment Information
               </h2>
-              <p className="text-gray-600 text-sm mb-6">
+              <p className="text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6">
                 Secure payment processing powered by Stripe
               </p>
-              <div className="bg-gray-50 p-6 rounded-lg mb-6">
-                <h3 className="font-bold text-brand-dark mb-4">
+              <div className="bg-gray-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
+                <h3 className="text-base sm:text-lg font-bold text-brand-dark mb-3 sm:mb-4">
                   Secure Payment
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       Card Number
                     </label>
-                    <input type="text" placeholder="1234 5678 9012 3456" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
+                    <input type="text" placeholder="1234 5678 9012 3456" className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                   </div>
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                         Expiry Date
                       </label>
-                      <input type="text" placeholder="MM/YY" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
+                      <input type="text" placeholder="MM/YY" className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                         CVV
                       </label>
-                      <input type="text" placeholder="123" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
+                      <input type="text" placeholder="123" className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       Cardholder Name
                     </label>
-                    <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
+                    <input type="text" className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       Country
                     </label>
-                    <select className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent">
+                    <select className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent">
                       <option>Sri Lanka</option>
                       <option>India</option>
                       <option>United States</option>
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
                       Postal Code
                     </label>
-                    <input type="text" className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
+                    <input type="text" className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                   </div>
                 </div>
               </div>
@@ -411,11 +415,11 @@ export function OrderForm({
                 servers. You will be redirected to Stripe's secure payment
                 portal to complete your purchase.
               </p>
-              <div className="flex gap-4">
-                <button onClick={() => setStep(3)} className="flex-1 bg-white text-brand-teal border border-brand-teal py-3 rounded-lg hover:bg-brand-cyan-light font-medium">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <button onClick={() => setStep(3)} className="w-full sm:flex-1 bg-white text-brand-teal border border-brand-teal py-2.5 sm:py-3 rounded-lg hover:bg-brand-cyan-light font-medium text-sm sm:text-base">
                   Back to Order Summary
                 </button>
-                <button onClick={() => alert('Payment processing would happen here!')} className="flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-3 rounded-lg hover:opacity-90 font-medium">
+                <button onClick={() => alert('Payment processing would happen here!')} className="w-full sm:flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium text-sm sm:text-base">
                   Complete Payment
                 </button>
               </div>
@@ -424,7 +428,9 @@ export function OrderForm({
                 No refunds will be provided for completed services.
               </p>
             </div>
-            <PackageSummary />
+            <div className="order-1 lg:order-2">
+              <PackageSummary />
+            </div>
           </div>}
       </div>
     </section>;

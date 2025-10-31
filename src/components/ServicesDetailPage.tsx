@@ -24,7 +24,7 @@ export function ServicesDetailPage() {
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-8 mb-8">
             <div className="flex items-start gap-6 mb-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-teal-dark rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-16 h-16 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center flex-shrink-0">
                 <VideoIcon className="w-8 h-8 text-white" />
               </div>
               <div className="flex-1">

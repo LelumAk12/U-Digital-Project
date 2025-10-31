@@ -31,7 +31,7 @@ export function ProjectCard({
             </span>)}
         </div>
         <Link to={`/portfolio/${projectId}`}>
-          <button className="text-brand-teal font-medium flex items-center gap-1 hover:gap-2 transition-all">
+          <button className="text-brand-teal font-medium flex items-center gap-1 hover:gap-2 transition-all text-sm sm:text-base">
             View Case Study <ChevronRightIcon className="w-4 h-4" />
           </button>
         </Link>

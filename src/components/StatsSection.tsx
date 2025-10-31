@@ -53,16 +53,18 @@ export function StatsSection() {
     value: '24/7',
     label: 'Support'
   }];
-  return <section ref={sectionRef} className="w-full bg-brand-cyan-light py-16 px-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        {stats.map((stat, index) => <div key={index} className="text-center animate-scaleIn" style={{
+  return <section ref={sectionRef} className="w-full bg-brand-cyan-light py-12 sm:py-16 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+        {stats.map((stat, index) => <div key={index} className="text-center animate-scaleIn py-4" style={{
         animationDelay: `${index * 0.2}s`
       }}>
-            <h3 className="text-4xl font-bold text-brand-dark mb-2">
+            <h3 className="text-3xl sm:text-4xl font-bold text-brand-dark mb-2">
               {stat.value}
             </h3>
-            <p className="text-gray-700">{stat.label}</p>
+            <p className="text-gray-700 text-sm sm:text-base">{stat.label}</p>
           </div>)}
       </div>
     </section>;
 }
+
+

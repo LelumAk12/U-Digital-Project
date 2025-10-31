@@ -65,77 +65,85 @@ export function ContactSection() {
       });
     }, 3000);
   };
-  return <section className="w-full bg-gray-50 py-20 px-6">
+  return <section className="w-full bg-gray-50 py-12 sm:py-16 md:py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 animate-fadeIn">
-          <h2 className="text-3xl font-bold text-brand-dark mb-4 flex items-center justify-center gap-4">
-            <span className="w-16 h-0.5 bg-brand-teal"></span>
+        <div className="text-center mb-8 sm:mb-12 animate-fadeIn">
+          <h2 className="text-2xl sm:text-3xl font-bold text-brand-dark mb-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
+            <span className="w-12 sm:w-16 h-0.5 bg-brand-teal"></span>
             GET IN TOUCH
-            <span className="w-16 h-0.5 bg-brand-teal"></span>
+            <span className="w-12 sm:w-16 h-0.5 bg-brand-teal"></span>
           </h2>
-          <h3 className="text-4xl font-bold text-brand-dark mb-4">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark mb-4">
             Let's Create Together
           </h3>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4">
             Ready to bring your vision to life? Contact U Digital Expert Lanka
             for professional videography, photography, and digital marketing
             services.
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <div className="space-y-6">
-            <a href="tel:+94768071913" className="bg-white p-6 rounded-lg hover:shadow-lg transition-all block">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                  <PhoneIcon className="w-6 h-6 text-white" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="space-y-4 sm:space-y-6">
+            <a href="tel:+94768071913" className="bg-white p-4 sm:p-6 rounded-lg hover:shadow-lg transition-all block">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center flex-shrink-0">
+                  <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-dark mb-1">Call Us</h4>
-                  <p className="text-brand-dark font-semibold">076 807 1913</p>
-                  <p className="text-gray-500 text-sm">
+                  <h4 className="font-bold text-brand-dark mb-1 text-sm sm:text-base">
+                    Call Us
+                  </h4>
+                  <p className="text-brand-dark font-semibold text-sm sm:text-base">
+                    076 807 1913
+                  </p>
+                  <p className="text-gray-500 text-xs sm:text-sm">
                     Available 24/7 for urgent projects
                   </p>
                 </div>
               </div>
             </a>
-            <a href="mailto:info@Uexpert@gmail.com" className="bg-white p-6 rounded-lg hover:shadow-lg transition-all block">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MailIcon className="w-6 h-6 text-white" />
+            <a href="mailto:info@Uexpert@gmail.com" className="bg-white p-4 sm:p-6 rounded-lg hover:shadow-lg transition-all block">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MailIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-dark mb-1">Email Us</h4>
-                  <p className="text-brand-dark font-semibold">
+                  <h4 className="font-bold text-brand-dark mb-1 text-sm sm:text-base">
+                    Email Us
+                  </h4>
+                  <p className="text-brand-dark font-semibold text-xs sm:text-base break-all">
                     info@Uexpert@gmail.com
                   </p>
-                  <p className="text-gray-500 text-sm">
+                  <p className="text-gray-500 text-xs sm:text-sm">
                     We respond within 24 hours
                   </p>
                 </div>
               </div>
             </a>
-            <div className="bg-white p-6 rounded-lg">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center flex-shrink-0">
-                  <ClockIcon className="w-6 h-6 text-white" />
+            <div className="bg-white p-4 sm:p-6 rounded-lg">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center flex-shrink-0">
+                  <ClockIcon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-brand-dark mb-1">
+                  <h4 className="font-bold text-brand-dark mb-1 text-sm sm:text-base">
                     Working Hours
                   </h4>
-                  <p className="text-brand-dark font-semibold">Mon - Sun</p>
-                  <p className="text-gray-500 text-sm">
+                  <p className="text-brand-dark font-semibold text-sm sm:text-base">
+                    Mon - Sun
+                  </p>
+                  <p className="text-gray-500 text-xs sm:text-sm">
                     Flexible scheduling available
                   </p>
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-brand-teal-dark to-brand-dark text-white p-8 rounded-lg">
-              <h4 className="text-xl font-bold mb-2">FOLLOW US</h4>
-              <p className="text-gray-200 text-sm mb-6">
+            <div className="bg-gradient-to-br from-brand-teal-dark to-brand-dark text-white p-6 sm:p-8 rounded-lg">
+              <h4 className="text-lg sm:text-xl font-bold mb-2">FOLLOW US</h4>
+              <p className="text-gray-200 text-xs sm:text-sm mb-4 sm:mb-6">
                 Stay updated with our latest work and behind-the-scenes content.
               </p>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <a href="#" className="flex items-center gap-4 hover:bg-white hover:bg-opacity-10 p-3 rounded-lg transition-all">
                   <div className="w-12 h-12 bg-white bg-opacity-10 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -176,20 +184,20 @@ export function ContactSection() {
               </div>
             </div>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-lg">
-            <h4 className="text-xl font-bold text-brand-dark mb-2">
+          <div className="bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+            <h4 className="text-lg sm:text-xl font-bold text-brand-dark mb-2">
               Send us a Message
             </h4>
-            <p className="text-gray-600 text-sm mb-6">
+            <p className="text-gray-600 text-xs sm:text-sm mb-4 sm:mb-6">
               Tell us about your project and we will get back to you with a
               customized quote.
             </p>
-            {isSubmitted ? <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center animate-fadeIn">
-                <CheckCircleIcon className="w-16 h-16 text-green-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-green-800 mb-2">
+            {isSubmitted ? <div className="bg-green-50 border border-green-200 rounded-lg p-6 sm:p-8 text-center animate-fadeIn">
+                <CheckCircleIcon className="w-12 h-12 sm:w-16 sm:h-16 text-green-500 mx-auto mb-4" />
+                <h3 className="text-xl sm:text-2xl font-bold text-green-800 mb-2">
                   Message Sent!
                 </h3>
-                <p className="text-green-600">
+                <p className="text-sm sm:text-base text-green-600">
                   We'll get back to you within 24 hours.
                 </p>
               </div> : <form onSubmit={handleSubmit} className="space-y-4">
@@ -250,7 +258,7 @@ export function ContactSection() {
                       {errors.message}
                     </p>}
                 </div>
-                <button type="submit" disabled={isSubmitting} className="w-full bg-brand-teal text-white px-8 py-3 rounded-lg hover:bg-brand-teal-dark font-medium transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
+                <button type="submit" disabled={isSubmitting} className="w-full bg-brand-teal text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-brand-teal-dark font-medium transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base">
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
                 <p className="text-xs text-gray-500 text-center">

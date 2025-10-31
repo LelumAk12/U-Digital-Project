@@ -25,7 +25,7 @@ export function ServicesDetailPage() {
           </div>
           <div className="bg-white border border-gray-200 rounded-lg p-8 mb-8">
             <div className="flex items-start gap-6 mb-8">
-              <div className="w-16 h-16 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="w-16 h-16 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center flex-shrink-0">
                 <VideoIcon className="w-8 h-8 text-white" />
               </div>
               <div className="flex-1">
@@ -55,7 +55,7 @@ export function ServicesDetailPage() {
                     Get pricing starting at LKR 25,000
                   </p>
                   <Link to="/pricing">
-                    <button className="bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white px-6 py-2 rounded-lg hover:opacity-90 font-medium transition-opacity">
+                    <button className="bg-brand-teal text-white px-5 sm:px-6 py-2 sm:py-2.5 rounded-lg hover:opacity-90 font-medium transition-opacity text-sm sm:text-base">
                       Get Started
                     </button>
                   </Link>
@@ -64,7 +64,7 @@ export function ServicesDetailPage() {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-12">
-            {features.map((feature, index) => <div key={index} className="bg-gradient-to-br from-brand-maroon to-brand-blue text-white p-4 rounded-lg text-center">
+            {features.map((feature, index) => <div key={index} className="bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple text-white p-4 rounded-lg text-center">
                 <div className="w-8 h-8 bg-white text-brand-maroon rounded-full flex items-center justify-center mx-auto mb-2 font-bold">
                   {index + 1}
                 </div>
@@ -87,13 +87,17 @@ export function ServicesDetailPage() {
               Contact us today for a free consultation. Call 076 807 1913 or
               visit our social media pages for more information.
             </p>
-            <div className="flex gap-4 justify-center">
-              <button className="bg-brand-teal text-white px-8 py-3 rounded-lg hover:opacity-90 font-medium transition-opacity">
-                Call Now
-              </button>
-              <button className="bg-white text-brand-dark px-8 py-3 rounded-lg hover:bg-gray-100 font-medium transition-opacity">
-                View Our Work
-              </button>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+              <Link to="/pricing">
+                <button className="w-full sm:w-auto bg-brand-teal text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:opacity-90 font-medium transition-opacity text-sm sm:text-base">
+                  Call Now
+                </button>
+              </Link>
+              <a href="#contact">
+                <button className="w-full sm:w-auto bg-brand-coral text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:opacity-90 font-medium transition-opacity text-sm sm:text-base">
+                  View Our Work
+                </button>
+              </a>
             </div>
           </div>
         </div>

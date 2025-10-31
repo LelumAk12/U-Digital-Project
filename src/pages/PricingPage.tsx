@@ -44,19 +44,19 @@ export function PricingPage() {
   };
   return <div className="w-full min-h-screen bg-white">
       <Header />
-      {showOrderForm && selectedPackage ? <OrderForm selectedPackage={selectedPackage} onBack={handleBack} /> : <section className="w-full py-20 px-6">
+      {showOrderForm && selectedPackage ? <OrderForm selectedPackage={selectedPackage} onBack={handleBack} /> : <section className="w-full py-12 sm:py-16 md:py-20 px-4 sm:px-6">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-12">
-              <h1 className="text-4xl font-bold text-teal-900 mb-4">
+            <div className="text-center mb-8 sm:mb-12">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-teal-900 mb-4 px-4">
                 CHOOSE YOUR PERFECT ADVERTISING SOLUTION
               </h1>
-              <p className="text-gray-600 max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base text-gray-600 max-w-3xl mx-auto px-4">
                 From digital marketing to complete brand transformation, we
                 offer comprehensive advertising solutions tailored to your
                 business needs.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {packages.map((pkg, index) => <PricingCard key={index} {...pkg} isSelected={selectedCardIndex === index} onSelect={() => handleCardSelect(index)} onGetStarted={() => handleGetStarted(pkg, index)} />)}
             </div>
           </div>

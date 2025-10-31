@@ -42,7 +42,7 @@ export function PortfolioDetailPage() {
               <img src="/2.jpg" alt="TechStart project" className="w-full rounded-lg shadow-lg" />
               <div className="mt-6">
                 <Link to="/pricing">
-                  <button className="w-full bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-3 rounded-lg hover:opacity-90 font-medium transition-opacity">
+                  <button className="w-full bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium transition-opacity text-sm sm:text-base">
                     Start Your Project
                   </button>
                 </Link>
@@ -51,7 +51,7 @@ export function PortfolioDetailPage() {
             <div className="space-y-6">
               <div className="bg-white border border-gray-200 p-6 rounded-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center">
                     <CalendarIcon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="font-bold text-brand-dark">
@@ -62,7 +62,7 @@ export function PortfolioDetailPage() {
               </div>
               <div className="bg-white border border-gray-200 p-6 rounded-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center">
                     <UsersIcon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="font-bold text-brand-dark">Team Size</h3>
@@ -73,7 +73,7 @@ export function PortfolioDetailPage() {
               </div>
               <div className="bg-white border border-gray-200 p-6 rounded-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center">
+                  <div className="w-10 h-10 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center">
                     <TrendingUpIcon className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="font-bold text-brand-dark">Results</h3>
@@ -151,14 +151,14 @@ export function PortfolioDetailPage() {
               Contact us today for a free consultation. Call 076 807 1913 or
               visit our social media pages for more information.
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link to="/pricing">
-                <button className="bg-brand-teal text-white px-8 py-3 rounded-lg hover:opacity-90 font-medium transition-opacity">
+                <button className="w-full sm:w-auto bg-brand-teal text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium transition-opacity text-sm sm:text-base">
                   Start Your Project
                 </button>
               </Link>
               <Link to="/">
-                <button className="bg-brand-coral text-white px-8 py-3 rounded-lg hover:opacity-90 font-medium border-2 border-brand-coral transition-opacity">
+                <button className="w-full sm:w-auto bg-brand-coral text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium border-2 border-brand-coral transition-opacity text-sm sm:text-base">
                   View Our Work
                 </button>
               </Link>
