@@ -7,7 +7,6 @@ import { CTASection } from '../components/CTASection';
 import { AboutSection } from '../components/AboutSection';
 import { WorkSection } from '../components/WorkSection';
 import { ContactSection } from '../components/ContactSection';
-import { FollowUsSection } from '../components/FollowUsSection';
 import { Footer } from '../components/Footer';
 export function HomePage() {
   return <div className="w-full min-h-screen">
@@ -27,7 +26,6 @@ export function HomePage() {
       <div id="contact">
         <ContactSection />
       </div>
-      <FollowUsSection />
       <Footer />
     </div>;
 }

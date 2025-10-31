@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CheckIcon, BoxIcon } from 'lucide-react';
 interface PricingCardProps {
   icon: BoxIcon;
@@ -7,8 +7,9 @@ interface PricingCardProps {
   period: string;
   description: string;
   features: string[];
-  featured?: boolean;
   onGetStarted: () => void;
+  isSelected: boolean;
+  onSelect: () => void;
 }
 export function PricingCard({
   icon: Icon,
@@ -17,10 +18,11 @@ export function PricingCard({
   period,
   description,
   features,
-  featured = false,
-  onGetStarted
+  onGetStarted,
+  isSelected,
+  onSelect
 }: PricingCardProps) {
-  return <div className={`bg-white rounded-lg p-8 ${featured ? 'border-2 border-brand-teal shadow-xl' : 'border border-gray-200'}`}>
+  return <div onClick={onSelect} className={`bg-white rounded-lg p-8 transition-all duration-300 cursor-pointer border-2 shadow-md ${isSelected ? 'border-brand-teal ring-4 ring-brand-teal ring-opacity-30' : 'border-gray-200'} hover:shadow-lg`}>
       <div className="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-teal-dark rounded-lg flex items-center justify-center mb-4">
         <Icon className="w-8 h-8 text-white" />
       </div>
@@ -36,7 +38,10 @@ export function PricingCard({
             <span className="text-gray-700 text-sm">{feature}</span>
           </li>)}
       </ul>
-      <button onClick={onGetStarted} className={`w-full py-3 rounded-lg font-medium ${featured ? 'bg-brand-teal text-white hover:bg-brand-teal-dark' : 'bg-white text-brand-teal border border-brand-teal hover:bg-brand-cyan-light'}`}>
+      <button onClick={e => {
+      e.stopPropagation();
+      onGetStarted();
+    }} className="w-full py-3 rounded-lg font-medium transition-all bg-brand-teal text-white hover:bg-brand-teal-dark">
         Get Started
       </button>
     </div>;

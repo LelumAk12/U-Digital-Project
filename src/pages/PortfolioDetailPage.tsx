@@ -39,7 +39,7 @@ export function PortfolioDetailPage() {
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             <div className="lg:col-span-2">
-              <img src="/2.png" alt="TechStart project" className="w-full rounded-lg shadow-lg" />
+              <img src="/2.jpg" alt="TechStart project" className="w-full rounded-lg shadow-lg" />
               <div className="mt-6">
                 <Link to="/pricing">
                   <button className="w-full bg-brand-teal text-white py-3 rounded-lg hover:opacity-90 font-medium transition-opacity">
