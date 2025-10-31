@@ -10,6 +10,8 @@ export default {content: [
         'brand-teal': '#10A4B0',
         'brand-coral': '#E07856',
         'brand-cyan-light': '#AEDDE5',
+        'brand-maroon': '#8B0000',
+        'brand-blue': '#1E40AF',
       },
     },
   },

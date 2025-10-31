@@ -23,7 +23,7 @@ export function PricingCard({
   onSelect
 }: PricingCardProps) {
   return <div onClick={onSelect} className={`bg-white rounded-lg p-8 transition-all duration-300 cursor-pointer border-2 shadow-md ${isSelected ? 'border-brand-teal ring-4 ring-brand-teal ring-opacity-30' : 'border-gray-200'} hover:shadow-lg`}>
-      <div className="w-16 h-16 bg-gradient-to-br from-brand-teal to-brand-teal-dark rounded-lg flex items-center justify-center mb-4">
+      <div className="w-16 h-16 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center mb-4">
         <Icon className="w-8 h-8 text-white" />
       </div>
       <h3 className="text-2xl font-bold text-brand-dark mb-2">{title}</h3>

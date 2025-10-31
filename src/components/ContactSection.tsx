@@ -86,7 +86,7 @@ export function ContactSection() {
           <div className="space-y-6">
             <a href="tel:+94768071913" className="bg-white p-6 rounded-lg hover:shadow-lg transition-all block">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-brand-teal rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center flex-shrink-0">
                   <PhoneIcon className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -100,7 +100,7 @@ export function ContactSection() {
             </a>
             <a href="mailto:info@Uexpert@gmail.com" className="bg-white p-6 rounded-lg hover:shadow-lg transition-all block">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-brand-teal rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center flex-shrink-0">
                   <MailIcon className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -116,7 +116,7 @@ export function ContactSection() {
             </a>
             <div className="bg-white p-6 rounded-lg">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-brand-teal rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center flex-shrink-0">
                   <ClockIcon className="w-6 h-6 text-white" />
                 </div>
                 <div>

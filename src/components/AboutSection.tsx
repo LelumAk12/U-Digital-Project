@@ -38,7 +38,7 @@ export function AboutSection() {
               </p>
               <div className="space-y-3 mb-8">
                 {highlights.map((highlight, index) => <div key={index} className="flex items-center gap-3">
-                    <div className="w-6 h-6 bg-brand-teal rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-full flex items-center justify-center flex-shrink-0">
                       <CheckIcon className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-700">{highlight}</span>
@@ -77,7 +77,7 @@ export function AboutSection() {
           {coreValues.map((value, index) => {
           const IconComponent = value.icon;
           return <div key={index} className="bg-white border border-gray-200 rounded-lg p-8 text-center hover:shadow-lg transition-shadow">
-                <div className="w-16 h-16 bg-brand-teal rounded-lg flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-maroon to-brand-blue rounded-lg flex items-center justify-center mx-auto mb-4">
                   <IconComponent className="w-8 h-8 text-white" />
                 </div>
                 <h4 className="text-xl font-bold text-brand-dark mb-3">
