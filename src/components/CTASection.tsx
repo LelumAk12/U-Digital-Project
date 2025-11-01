@@ -12,12 +12,12 @@ export function CTASection() {
         </p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <Link to="/pricing" className="w-full sm:w-auto">
-            <button className="w-full sm:w-auto bg-brand-teal text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:opacity-90 font-medium transition-opacity text-sm sm:text-base">
+            <button className="w-full sm:w-auto bg-brand-teal hover:bg-brand-hover text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium transition-all text-sm sm:text-base">
               Get Started
             </button>
           </Link>
           <a href="#portfolio" className="w-full sm:w-auto">
-            <button className="w-full sm:w-auto bg-brand-coral text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:opacity-90 font-medium transition-opacity text-sm sm:text-base">
+            <button className="w-full sm:w-auto bg-white text-brand-dark px-6 sm:px-8 py-2.5 sm:py-3 rounded-full hover:opacity-90 font-medium transition-opacity text-sm sm:text-base">
               View Our Work
             </button>
           </a>

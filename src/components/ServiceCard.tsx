@@ -15,21 +15,23 @@ export function ServiceCard({
   features,
   serviceId = 'videography'
 }: ServiceCardProps) {
-  return <div className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow">
-      <div className="w-16 h-16 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center mb-4">
-        <Icon className="w-8 h-8 text-white" />
+  return <div className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-xl transition-shadow">
+      <div className="w-24 h-24 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-2xl flex items-center justify-center mb-6">
+        <Icon className="w-12 h-12 text-white" />
       </div>
-      <h3 className="text-xl font-bold text-brand-dark mb-3">{title}</h3>
-      <p className="text-gray-600 mb-4 text-sm">{description}</p>
-      <ul className="space-y-2 mb-4">
-        {features.map((feature, index) => <li key={index} className="text-sm text-gray-700 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-full"></span>
+      <h3 className="text-2xl font-bold text-brand-dark mb-4">{title}</h3>
+      <p className="text-gray-600 mb-6 text-base leading-relaxed">
+        {description}
+      </p>
+      <ul className="space-y-3 mb-6">
+        {features.map((feature, index) => <li key={index} className="text-base text-gray-700 flex items-center gap-3">
+            <span className="w-2 h-2 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-full"></span>
             {feature}
           </li>)}
       </ul>
       <Link to={`/services/${serviceId}`}>
-        <button className="text-brand-teal font-medium flex items-center gap-1 hover:gap-2 transition-all text-sm sm:text-base">
-          Learn More <ChevronRightIcon className="w-4 h-4" />
+        <button className="text-brand-teal font-medium flex items-center gap-2 hover:gap-3 transition-all text-base sm:text-lg">
+          Learn More <ChevronRightIcon className="w-5 h-5" />
         </button>
       </Link>
     </div>;

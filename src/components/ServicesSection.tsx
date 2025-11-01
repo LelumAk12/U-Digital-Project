@@ -39,20 +39,20 @@ export function ServicesSection() {
     features: ['Video Ads', 'Social Media Ads', 'Display Advertising', 'Brand Campaigns'],
     serviceId: 'advertising'
   }];
-  return <section className="w-full bg-white py-12 sm:py-16 md:py-20 px-4 sm:px-6">
+  return <section className="w-full bg-white py-16 sm:py-20 md:py-24 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-brand-dark mb-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-            <span className="w-12 sm:w-16 h-0.5 bg-brand-teal"></span>
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark mb-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
+            <span className="w-16 sm:w-20 h-0.5 bg-brand-teal"></span>
             OUR SERVICES
-            <span className="w-12 sm:w-16 h-0.5 bg-brand-teal"></span>
+            <span className="w-16 sm:w-20 h-0.5 bg-brand-teal"></span>
           </h2>
-          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
             Professional videography, photography and digital marketing services
             in Colombo, Sri Lanka. Quality services at affordable prices.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           {services.map((service, index) => <ServiceCard key={index} {...service} />)}
         </div>
       </div>

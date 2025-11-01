@@ -258,7 +258,7 @@ export function ContactSection() {
                       {errors.message}
                     </p>}
                 </div>
-                <button type="submit" disabled={isSubmitting} className="w-full bg-brand-teal text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-brand-teal-dark font-medium transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base">
+                <button type="submit" disabled={isSubmitting} className="w-full bg-brand-teal hover:bg-brand-hover text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-medium transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base">
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
                 <p className="text-xs text-gray-500 text-center">
