@@ -1,5 +1,5 @@
 import React, { useState, createElement } from 'react';
-import { CheckIcon, ArrowLeftIcon } from 'lucide-react';
+import { CheckIcon, ArrowLeftIcon, XIcon, CreditCardIcon, LockIcon } from 'lucide-react';
 interface OrderFormProps {
   selectedPackage: any;
   onBack: () => void;
@@ -9,6 +9,8 @@ export function OrderForm({
   onBack
 }: OrderFormProps) {
   const [step, setStep] = useState(1);
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -18,7 +20,15 @@ export function OrderForm({
     industry: '',
     projectRequirements: ''
   });
+  const [paymentData, setPaymentData] = useState({
+    cardNumber: '',
+    cardName: '',
+    expiryDate: '',
+    cvv: '',
+    billingAddress: ''
+  });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [paymentErrors, setPaymentErrors] = useState<Record<string, string>>({});
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -27,6 +37,31 @@ export function OrderForm({
     if (errors[e.target.name]) {
       setErrors({
         ...errors,
+        [e.target.name]: ''
+      });
+    }
+  };
+  const handlePaymentInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    let value = e.target.value;
+    // Format card number with spaces
+    if (e.target.name === 'cardNumber') {
+      value = value.replace(/\s/g, '').replace(/(\d{4})/g, '$1 ').trim();
+    }
+    // Format expiry date
+    if (e.target.name === 'expiryDate') {
+      value = value.replace(/\D/g, '').replace(/(\d{2})(\d{0,2})/, '$1/$2').substring(0, 5);
+    }
+    // Limit CVV to 3 digits
+    if (e.target.name === 'cvv') {
+      value = value.replace(/\D/g, '').substring(0, 3);
+    }
+    setPaymentData({
+      ...paymentData,
+      [e.target.name]: value
+    });
+    if (paymentErrors[e.target.name]) {
+      setPaymentErrors({
+        ...paymentErrors,
         [e.target.name]: ''
       });
     }
@@ -64,6 +99,32 @@ export function OrderForm({
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
+  const validatePayment = () => {
+    const newErrors: Record<string, string> = {};
+    if (!paymentData.cardNumber.trim()) {
+      newErrors.cardNumber = 'Card number is required';
+    } else if (paymentData.cardNumber.replace(/\s/g, '').length !== 16) {
+      newErrors.cardNumber = 'Card number must be 16 digits';
+    }
+    if (!paymentData.cardName.trim()) {
+      newErrors.cardName = 'Cardholder name is required';
+    }
+    if (!paymentData.expiryDate.trim()) {
+      newErrors.expiryDate = 'Expiry date is required';
+    } else if (!/^\d{2}\/\d{2}$/.test(paymentData.expiryDate)) {
+      newErrors.expiryDate = 'Invalid expiry date format (MM/YY)';
+    }
+    if (!paymentData.cvv.trim()) {
+      newErrors.cvv = 'CVV is required';
+    } else if (paymentData.cvv.length !== 3) {
+      newErrors.cvv = 'CVV must be 3 digits';
+    }
+    if (!paymentData.billingAddress.trim()) {
+      newErrors.billingAddress = 'Billing address is required';
+    }
+    setPaymentErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (step === 1) {
@@ -74,6 +135,12 @@ export function OrderForm({
       if (validateStep2()) {
         setStep(3);
       }
+    }
+  };
+  const handlePaymentSubmit = () => {
+    if (validatePayment()) {
+      setShowPaymentModal(false);
+      setShowConfirmationModal(true);
     }
   };
   const PackageSummary = () => <div className="bg-white border-2 border-gray-200 rounded-lg p-4 sm:p-6 lg:h-fit lg:sticky lg:top-6">
@@ -135,10 +202,6 @@ export function OrderForm({
             <div className={`flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 rounded-full text-sm sm:text-base ${step >= 3 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
               3
             </div>
-            <div className={`h-0.5 w-8 sm:w-16 ${step >= 4 ? 'bg-gradient-to-r from-brand-maroon to-brand-blue' : 'bg-gray-200'}`}></div>
-            <div className={`flex items-center justify-center w-8 h-8 sm:w-12 sm:h-12 rounded-full text-sm sm:text-base ${step >= 4 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
-              4
-            </div>
           </div>
         </div>
         {step === 1 && <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -151,7 +214,7 @@ export function OrderForm({
                 Fill out your contact information to get started
               </p>
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
                       First Name *
@@ -255,7 +318,7 @@ export function OrderForm({
                 Order Summary
               </h2>
               <p className="text-gray-600 text-sm mb-6">
-                Please review your order details before proceeding to payment
+                Please review your order details before proceeding
               </p>
               <div className="space-y-6">
                 <div className="bg-gray-50 p-6 rounded-lg">
@@ -347,89 +410,158 @@ export function OrderForm({
                 <button onClick={() => setStep(2)} className="w-full sm:flex-1 bg-white text-brand-teal border border-brand-teal py-2.5 sm:py-3 rounded-lg hover:bg-brand-cyan-light font-medium text-sm sm:text-base">
                   Back to Project Details
                 </button>
-                <button onClick={() => setStep(4)} className="w-full sm:flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium text-sm sm:text-base">
+                <button onClick={() => setShowPaymentModal(true)} className="w-full sm:flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium text-sm sm:text-base">
                   Proceed to Payment
                 </button>
               </div>
             </div>
           </div>}
-        {step === 4 && <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-            <div className="order-2 lg:order-1 lg:col-span-2 bg-white border border-gray-200 rounded-lg p-4 sm:p-6 md:p-8">
-              <h2 className="text-xl sm:text-2xl font-bold text-brand-dark mb-4 sm:mb-6">
-                Payment Information
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6">
-                Secure payment processing powered by Stripe
-              </p>
-              <div className="bg-gray-50 p-4 sm:p-6 rounded-lg mb-4 sm:mb-6">
-                <h3 className="text-base sm:text-lg font-bold text-brand-dark mb-3 sm:mb-4">
-                  Secure Payment
-                </h3>
-                <div className="space-y-3 sm:space-y-4">
+        {showPaymentModal && <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto">
+            <div className="bg-white rounded-lg p-6 sm:p-8 max-w-md w-full my-8 animate-scaleIn">
+              <div className="flex justify-between items-start mb-6">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-brand-dark mb-2">
+                    Payment Details
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Enter your payment information securely
+                  </p>
+                </div>
+                <button onClick={() => setShowPaymentModal(false)} className="text-gray-400 hover:text-gray-600">
+                  <XIcon className="w-6 h-6" />
+                </button>
+              </div>
+              <div className="bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white p-4 rounded-lg mb-6">
+                <div className="flex items-center gap-2 mb-3">
+                  <CreditCardIcon className="w-5 h-5" />
+                  <span className="text-sm font-medium">Amount to Pay</span>
+                </div>
+                <div className="text-3xl font-bold">
+                  {selectedPackage.price} LKR
+                </div>
+                <div className="text-sm text-gray-200 mt-1">
+                  {selectedPackage.period}
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Card Number *
+                  </label>
+                  <input type="text" name="cardNumber" value={paymentData.cardNumber} onChange={handlePaymentInputChange} placeholder="1234 5678 9012 3456" maxLength={19} className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent ${paymentErrors.cardNumber ? 'border-red-500' : 'border-gray-300'}`} />
+                  {paymentErrors.cardNumber && <p className="text-red-500 text-xs mt-1">
+                      {paymentErrors.cardNumber}
+                    </p>}
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Cardholder Name *
+                  </label>
+                  <input type="text" name="cardName" value={paymentData.cardName} onChange={handlePaymentInputChange} placeholder="John Doe" className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent ${paymentErrors.cardName ? 'border-red-500' : 'border-gray-300'}`} />
+                  {paymentErrors.cardName && <p className="text-red-500 text-xs mt-1">
+                      {paymentErrors.cardName}
+                    </p>}
+                </div>
+                <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                      Card Number
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Expiry Date *
                     </label>
-                    <input type="text" placeholder="1234 5678 9012 3456" className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
+                    <input type="text" name="expiryDate" value={paymentData.expiryDate} onChange={handlePaymentInputChange} placeholder="MM/YY" maxLength={5} className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent ${paymentErrors.expiryDate ? 'border-red-500' : 'border-gray-300'}`} />
+                    {paymentErrors.expiryDate && <p className="text-red-500 text-xs mt-1">
+                        {paymentErrors.expiryDate}
+                      </p>}
                   </div>
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                    <div>
-                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                        Expiry Date
-                      </label>
-                      <input type="text" placeholder="MM/YY" className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      CVV *
+                    </label>
+                    <input type="text" name="cvv" value={paymentData.cvv} onChange={handlePaymentInputChange} placeholder="123" maxLength={3} className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent ${paymentErrors.cvv ? 'border-red-500' : 'border-gray-300'}`} />
+                    {paymentErrors.cvv && <p className="text-red-500 text-xs mt-1">
+                        {paymentErrors.cvv}
+                      </p>}
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Billing Address *
+                  </label>
+                  <textarea name="billingAddress" value={paymentData.billingAddress} onChange={handlePaymentInputChange} placeholder="Enter your billing address" rows={3} className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent ${paymentErrors.billingAddress ? 'border-red-500' : 'border-gray-300'}`}></textarea>
+                  {paymentErrors.billingAddress && <p className="text-red-500 text-xs mt-1">
+                      {paymentErrors.billingAddress}
+                    </p>}
+                </div>
+                <div className="bg-gray-50 p-4 rounded-lg flex items-start gap-3">
+                  <LockIcon className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                  <p className="text-xs text-gray-600">
+                    Your payment information is encrypted and secure. We use
+                    industry-standard security measures to protect your data.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                <button onClick={() => setShowPaymentModal(false)} className="w-full sm:flex-1 bg-white text-brand-teal border border-brand-teal py-2.5 rounded-lg hover:bg-brand-cyan-light font-medium text-sm">
+                  Cancel
+                </button>
+                <button onClick={handlePaymentSubmit} className="w-full sm:flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 rounded-lg hover:opacity-90 font-medium text-sm flex items-center justify-center gap-2">
+                  <LockIcon className="w-4 h-4" />
+                  Pay {selectedPackage.price} LKR
+                </button>
+              </div>
+            </div>
+          </div>}
+        {showConfirmationModal && <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-lg p-6 sm:p-8 max-w-md w-full animate-scaleIn">
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                  <CheckIcon className="w-8 h-8 text-green-600" />
+                </div>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-brand-dark text-center mb-4">
+                Payment Successful!
+              </h3>
+              <div className="mb-6">
+                <p className="text-gray-600 mb-4 text-center">
+                  Your order has been confirmed and payment processed
+                  successfully.
+                </p>
+                <div className="bg-gray-50 p-4 rounded-lg space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Order ID:</span>
+                    <span className="font-medium">
+                      ORD-{Date.now().toString().slice(-8)}
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Package:</span>
+                    <span className="font-medium">{selectedPackage.title}</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-gray-600">Client:</span>
+                    <span className="font-medium">
+                      {formData.firstName} {formData.lastName}
+                    </span>
+                  </div>
+                  <div className="border-t border-gray-300 pt-2 mt-2">
+                    <div className="flex justify-between">
+                      <span className="font-bold">Amount Paid:</span>
+                      <span className="font-bold text-green-600">
+                        {selectedPackage.price} LKR
+                      </span>
                     </div>
-                    <div>
-                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                        CVV
-                      </label>
-                      <input type="text" placeholder="123" className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                      Cardholder Name
-                    </label>
-                    <input type="text" className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
-                  </div>
-                  <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                      Country
-                    </label>
-                    <select className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent">
-                      <option>Sri Lanka</option>
-                      <option>India</option>
-                      <option>United States</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
-                      Postal Code
-                    </label>
-                    <input type="text" className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent" />
                   </div>
                 </div>
               </div>
-              <p className="text-xs text-gray-500 mb-4">
-                Your payment information is encrypted and never stored on our
-                servers. You will be redirected to Stripe's secure payment
-                portal to complete your purchase.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <button onClick={() => setStep(3)} className="w-full sm:flex-1 bg-white text-brand-teal border border-brand-teal py-2.5 sm:py-3 rounded-lg hover:bg-brand-cyan-light font-medium text-sm sm:text-base">
-                  Back to Order Summary
-                </button>
-                <button onClick={() => alert('Payment processing would happen here!')} className="w-full sm:flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium text-sm sm:text-base">
-                  Complete Payment
-                </button>
-              </div>
+              <button onClick={() => {
+            setShowConfirmationModal(false);
+            window.location.href = '/';
+          }} className="w-full bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 rounded-lg hover:opacity-90 font-medium text-sm">
+                Return to Home
+              </button>
               <p className="text-xs text-gray-500 mt-4 text-center">
-                By completing this purchase you agree to our Terms of Service.
-                No refunds will be provided for completed services.
+                A confirmation email has been sent to {formData.email}. Our team
+                will contact you within 24 hours to discuss project details.
               </p>
-            </div>
-            <div className="order-1 lg:order-2">
-              <PackageSummary />
             </div>
           </div>}
       </div>
