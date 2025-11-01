@@ -1,5 +1,5 @@
 import React from 'react';
-import { HomePage } from './pages/HomePage';
+import { AppRouter } from './AppRouter';
 export function App() {
-  return <HomePage />;
+  return <AppRouter />;
 }

@@ -30,7 +30,7 @@ export function PortfolioDetailPage() {
       <Header />
       <section className="w-full py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold text-teal-900 mb-4 text-center">
+          <h1 className="text-4xl font-bold text-brand-dark mb-4 text-center">
             TECHSTART REBRANDING SUCCESS
           </h1>
           <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
@@ -39,10 +39,10 @@ export function PortfolioDetailPage() {
           </p>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             <div className="lg:col-span-2">
-              <img src="/2.png" alt="TechStart project" className="w-full rounded-lg shadow-lg" />
+              <img src="/2.jpg" alt="TechStart project" className="w-full rounded-lg shadow-lg" />
               <div className="mt-6">
                 <Link to="/pricing">
-                  <button className="w-full bg-teal-600 text-white py-3 rounded-lg hover:bg-teal-700 font-medium">
+                  <button className="w-full bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium transition-opacity text-sm sm:text-base">
                     Start Your Project
                   </button>
                 </Link>
@@ -51,15 +51,21 @@ export function PortfolioDetailPage() {
             <div className="space-y-6">
               <div className="bg-white border border-gray-200 p-6 rounded-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <CalendarIcon className="w-6 h-6 text-teal-600" />
-                  <h3 className="font-bold text-teal-900">Project Timeline</h3>
+                  <div className="w-10 h-10 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center">
+                    <CalendarIcon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-bold text-brand-dark">
+                    Project Timeline
+                  </h3>
                 </div>
                 <p className="text-gray-600 text-sm">March - April 2024</p>
               </div>
               <div className="bg-white border border-gray-200 p-6 rounded-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <UsersIcon className="w-6 h-6 text-teal-600" />
-                  <h3 className="font-bold text-teal-900">Team Size</h3>
+                  <div className="w-10 h-10 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center">
+                    <UsersIcon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-bold text-brand-dark">Team Size</h3>
                 </div>
                 <p className="text-gray-600 text-sm">
                   5 specialists - Videographer, Photographer, Marketing Expert
@@ -67,10 +73,12 @@ export function PortfolioDetailPage() {
               </div>
               <div className="bg-white border border-gray-200 p-6 rounded-lg">
                 <div className="flex items-center gap-3 mb-4">
-                  <TrendingUpIcon className="w-6 h-6 text-teal-600" />
-                  <h3 className="font-bold text-teal-900">Results</h3>
+                  <div className="w-10 h-10 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-lg flex items-center justify-center">
+                    <TrendingUpIcon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="font-bold text-brand-dark">Results</h3>
                 </div>
-                <p className="text-2xl font-bold text-teal-600 mb-1">+150%</p>
+                <p className="text-2xl font-bold text-brand-teal mb-1">+150%</p>
                 <p className="text-gray-600 text-sm">
                   Brand Recognition Increase
                 </p>
@@ -79,7 +87,7 @@ export function PortfolioDetailPage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <div className="bg-gray-50 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold text-teal-900 mb-4">
+              <h3 className="text-2xl font-bold text-brand-dark mb-4">
                 The Challenge
               </h3>
               <p className="text-gray-600 mb-4">
@@ -89,13 +97,13 @@ export function PortfolioDetailPage() {
               </p>
               <ul className="space-y-2">
                 {challenges.map((challenge, index) => <li key={index} className="text-gray-700 flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 bg-brand-teal rounded-full mt-2 flex-shrink-0"></span>
                     <span>{challenge}</span>
                   </li>)}
               </ul>
             </div>
             <div className="bg-gray-50 p-8 rounded-lg">
-              <h3 className="text-2xl font-bold text-teal-900 mb-4">
+              <h3 className="text-2xl font-bold text-brand-dark mb-4">
                 Our Solution
               </h3>
               <p className="text-gray-600 mb-4">
@@ -105,26 +113,26 @@ export function PortfolioDetailPage() {
               </p>
               <ul className="space-y-2">
                 {solutions.map((solution, index) => <li key={index} className="text-gray-700 flex items-start gap-2">
-                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2 flex-shrink-0"></span>
+                    <span className="w-1.5 h-1.5 bg-brand-teal rounded-full mt-2 flex-shrink-0"></span>
                     <span>{solution}</span>
                   </li>)}
               </ul>
             </div>
           </div>
           <div className="mb-12">
-            <h3 className="text-2xl font-bold text-teal-900 mb-6 text-center">
+            <h3 className="text-2xl font-bold text-brand-dark mb-6 text-center">
               SERVICES UTILIZED
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {services.map((service, index) => <div key={index} className="bg-white border border-gray-200 p-6 rounded-lg text-center">
-                  <h4 className="font-bold text-teal-900 mb-2">
+                  <h4 className="font-bold text-brand-dark mb-2">
                     {service.title}
                   </h4>
                   <p className="text-gray-600 text-sm">{service.description}</p>
                 </div>)}
             </div>
           </div>
-          <div className="bg-gradient-to-br from-teal-900 to-teal-700 text-white p-12 rounded-lg mb-12">
+          <div className="bg-gradient-to-br from-brand-dark to-brand-teal-dark text-white p-12 rounded-lg mb-12">
             <h3 className="text-3xl font-bold mb-8 text-center">
               Project Impact
             </h3>
@@ -136,21 +144,21 @@ export function PortfolioDetailPage() {
             </div>
           </div>
           <div className="bg-gray-50 p-12 rounded-lg text-center">
-            <h3 className="text-3xl font-bold text-teal-900 mb-4">
+            <h3 className="text-3xl font-bold text-brand-dark mb-4">
               Ready to Start Your Project?
             </h3>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
               Contact us today for a free consultation. Call 076 807 1913 or
               visit our social media pages for more information.
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link to="/pricing">
-                <button className="bg-teal-600 text-white px-8 py-3 rounded-lg hover:bg-teal-700 font-medium">
+                <button className="w-full sm:w-auto bg-brand-teal text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium transition-opacity text-sm sm:text-base">
                   Start Your Project
                 </button>
               </Link>
               <Link to="/">
-                <button className="bg-white text-teal-900 px-8 py-3 rounded-lg hover:bg-gray-100 font-medium border border-gray-300">
+                <button className="w-full sm:w-auto bg-brand-coral text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium border-2 border-brand-coral transition-opacity text-sm sm:text-base">
                   View Our Work
                 </button>
               </Link>
