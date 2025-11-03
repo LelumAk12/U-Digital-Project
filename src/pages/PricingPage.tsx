@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { ScrollToTopButton } from '../components/ScrollToTopButton';
 import { PricingCard } from '../components/PricingCard';
 import { OrderForm } from '../components/OrderForm';
 import { TrendingUpIcon, LightbulbIcon, SparklesIcon } from 'lucide-react';
+import type { Package } from '../types/package';
 export function PricingPage() {
   const [showOrderForm, setShowOrderForm] = useState(false);
-  const [selectedPackage, setSelectedPackage] = useState<any>(null);
+  const [selectedPackage, setSelectedPackage] = useState<Package | null>(null);
   const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(null);
   const packages = [{
     icon: TrendingUpIcon,
@@ -31,7 +32,7 @@ export function PricingPage() {
     description: 'Full-service creative campaigns from concept to execution',
     features: ['Creative Concept Development', 'Video Production', 'Graphic Design Assets', 'Multi-platform Adaptation', 'Campaign Management', 'Performance Optimization']
   }];
-  const handleGetStarted = (pkg: any, index: number) => {
+  const handleGetStarted = (pkg: Package, index: number) => {
     setSelectedPackage(pkg);
     setSelectedCardIndex(index);
     setShowOrderForm(true);

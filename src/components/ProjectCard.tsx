@@ -6,6 +6,7 @@ interface ProjectCardProps {
   title: string;
   description: string;
   tags: string[];
+  category: string;
   projectId?: string;
 }
 export function ProjectCard({
@@ -13,13 +14,14 @@ export function ProjectCard({
   title,
   description,
   tags,
+  category,
   projectId = 'techstart-rebranding'
 }: ProjectCardProps) {
   return <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition-shadow">
       <div className="relative">
         <img src={image} alt={title} className="w-full h-56 object-cover" />
         <div className="absolute top-4 left-4 bg-brand-teal text-white px-4 py-2 rounded-full text-base font-medium">
-          Branding
+          {category}
         </div>
       </div>
       <div className="p-8">

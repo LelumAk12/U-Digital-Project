@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { CheckIcon, LightbulbIcon, TargetIcon, UsersIcon } from 'lucide-react';
 export function AboutSection() {
   const highlights = ['Strategic brand positioning and messaging', 'Award-winning creative campaigns', 'Data-driven marketing approaches', 'End-to-end project management'];
@@ -18,18 +17,21 @@ export function AboutSection() {
   return <section className="w-full bg-white py-16 sm:py-20 md:py-24 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 sm:mb-20">
-          <div className="flex items-center gap-5 mb-8">
-            <h2 className="text-sm sm:text-base font-bold text-brand-dark tracking-wider">
-              ABOUT US
-            </h2>
-            <div className="h-0.5 w-16 sm:w-20 bg-brand-dark"></div>
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-4 sm:gap-6 mb-6">
+              <span className="w-16 sm:w-20 h-0.5 bg-brand-teal"></span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark">
+                ABOUT US
+              </h2>
+              <span className="w-16 sm:w-20 h-0.5 bg-brand-teal"></span>
+            </div>
+            <h3 className="text-xl sm:text-2xl md:text-3xl text-gray-600 mb-8 px-4">
+              Crafting Success Stories Since 2019
+            </h3>
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-start">
             <div>
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark mb-6 sm:mb-8 leading-tight">
-                Crafting Success Stories Since 2019
-              </h3>
-              <p className="text-base sm:text-lg text-gray-600 mb-8 sm:mb-10 leading-relaxed">
+              <p className="text-lg sm:text-xl text-gray-600 mb-8 sm:mb-10 leading-relaxed">
                 We are a full-service advertising agency dedicated to helping
                 brands tell their stories in ways that resonate. Inside, you'll
                 find a team of creative strategists, designers, and digital
@@ -41,13 +43,13 @@ export function AboutSection() {
                     <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                       <CheckIcon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </div>
-                    <span className="text-base sm:text-lg text-gray-700">
+                    <span className="text-lg sm:text-xl text-gray-700">
                       {highlight}
                     </span>
                   </div>)}
               </div>
               <div className="bg-gray-50 p-6 sm:p-8 rounded-xl border-l-4 border-brand-teal">
-                <p className="text-base sm:text-lg text-gray-700 italic leading-relaxed">
+                <p className="text-lg sm:text-xl text-gray-700 italic leading-relaxed">
                   "Our mission is to transform brands into powerful stories that
                   connect with people's hearts and minds, driving both emotional
                   engagement and business growth."
@@ -69,14 +71,14 @@ export function AboutSection() {
           </div>
         </div>
         <div className="text-center mb-10 sm:mb-14">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-5 mb-6">
-            <div className="h-0.5 w-16 sm:w-20 bg-brand-dark"></div>
-            <h2 className="text-sm sm:text-base font-bold text-brand-dark tracking-wider">
+          <div className="flex items-center justify-center gap-4 sm:gap-6 mb-6">
+            <span className="w-16 sm:w-20 h-0.5 bg-brand-teal"></span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark">
               OUR CORE VALUES
             </h2>
-            <div className="h-0.5 w-16 sm:w-20 bg-brand-dark"></div>
+            <span className="w-16 sm:w-20 h-0.5 bg-brand-teal"></span>
           </div>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
             The principles that guide everything we do and drive our commitment
             to excellence.
           </p>
@@ -91,7 +93,7 @@ export function AboutSection() {
                 <h4 className="text-xl sm:text-2xl font-bold text-brand-dark mb-4">
                   {value.title}
                 </h4>
-                <p className="text-base text-gray-600 leading-relaxed">
+                <p className="text-lg text-gray-600 leading-relaxed">
                   {value.description}
                 </p>
               </div>;

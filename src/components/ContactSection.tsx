@@ -68,15 +68,17 @@ export function ContactSection() {
   return <section className="w-full bg-gray-50 py-12 sm:py-16 md:py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12 animate-fadeIn">
-          <h2 className="text-2xl sm:text-3xl font-bold text-brand-dark mb-4 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
-            <span className="w-12 sm:w-16 h-0.5 bg-brand-teal"></span>
-            GET IN TOUCH
-            <span className="w-12 sm:w-16 h-0.5 bg-brand-teal"></span>
-          </h2>
+          <div className="flex items-center justify-center gap-4 sm:gap-6 mb-6">
+            <span className="w-16 sm:w-20 h-0.5 bg-brand-teal"></span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark">
+              GET IN TOUCH
+            </h2>
+            <span className="w-16 sm:w-20 h-0.5 bg-brand-teal"></span>
+          </div>
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark mb-4">
             Let's Create Together
           </h3>
-          <p className="text-sm sm:text-base text-gray-700 max-w-2xl mx-auto px-4">
+          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4">
             Ready to bring your vision to life? Contact U Digital Expert Lanka
             for professional videography, photography, and digital marketing
             services.
