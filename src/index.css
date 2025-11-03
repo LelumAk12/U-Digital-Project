@@ -58,3 +58,40 @@
 html {
   scroll-behavior: smooth;
 }
+/* Scroll to top button - mobile only */
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  background: linear-gradient(135deg, #003135 0%, #10A4B0 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.scroll-to-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+.scroll-to-top svg {
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+@media (min-width: 769px) {
+  .scroll-to-top {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}

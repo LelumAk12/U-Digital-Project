@@ -54,11 +54,17 @@ export function AboutSection() {
                 </p>
               </div>
             </div>
-            <div className="relative order-first lg:order-last">
-              <div className="bg-brand-dark rounded-2xl overflow-hidden shadow-2xl">
-                <img src="1.jpg" alt="Team collaboration" className="w-full h-72 sm:h-96 lg:h-full object-cover" />
+            <div className="space-y-6">
+              <div className="relative">
+                <div className="bg-brand-dark rounded-2xl overflow-hidden shadow-2xl">
+                  <img src="1.jpg" alt="Team collaboration" className="w-full h-72 sm:h-80 object-cover" />
+                </div>
               </div>
-              <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-8 w-28 h-28 sm:w-36 sm:h-36 bg-gradient-to-br from-pink-400 to-orange-400 rounded-full opacity-20"></div>
+              <div className="relative">
+                <div className="bg-brand-dark rounded-2xl overflow-hidden shadow-2xl">
+                  <img src="2.jpg" alt="Professional workspace" className="w-full h-72 sm:h-80 object-cover" />
+                </div>
+              </div>
             </div>
           </div>
         </div>

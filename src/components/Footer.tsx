@@ -97,13 +97,14 @@ export function Footer() {
     name: 'WhatsApp',
     url: '#'
   }];
-  return <footer className="w-full bg-brand-dark text-white py-8 sm:py-12 px-4 sm:px-6">
+  return <footer className="w-full bg-brand-dark text-white py-12 sm:py-16 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 mb-10 sm:mb-12">
           <div>
-            <h4 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">
-              U DIGITAL
-            </h4>
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/favicon.png" alt="U Digital Logo" className="w-10 h-10" />
+              <h4 className="text-lg sm:text-xl font-bold">U DIGITAL</h4>
+            </div>
             <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
               U DIGITAL EXPERT LANKA PVT LTD - Your one-stop solution for
               videography, photography, and digital marketing services in Sri
@@ -111,20 +112,18 @@ export function Footer() {
             </p>
           </div>
           <div>
-            <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base">
+            <h4 className="font-bold mb-4 text-sm sm:text-base">
               Our Services
             </h4>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-300">
+            <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
               {services.map((service, index) => <li key={index} onClick={() => handleNavClick(service.section)} className="hover:text-white cursor-pointer transition-colors">
                   {service.name}
                 </li>)}
             </ul>
           </div>
           <div>
-            <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base">
-              Company
-            </h4>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-300">
+            <h4 className="font-bold mb-4 text-sm sm:text-base">Company</h4>
+            <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
               {company.map((item, index) => <li key={index}>
                   {item.link ? <Link to={item.link} className="hover:text-white cursor-pointer transition-colors block">
                       {item.name}
@@ -135,10 +134,8 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="font-bold mb-3 sm:mb-4 text-sm sm:text-base">
-              Follow Us
-            </h4>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-gray-300">
+            <h4 className="font-bold mb-4 text-sm sm:text-base">Follow Us</h4>
+            <ul className="space-y-2 text-xs sm:text-sm text-gray-300">
               {followUs.map((item, index) => <li key={index}>
                   <a href={item.url} className="hover:text-white cursor-pointer transition-colors block">
                     {item.name}
@@ -147,10 +144,13 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-brand-teal-dark pt-4 sm:pt-6 text-center text-xs sm:text-sm text-gray-400">
+        <div className="border-t border-brand-teal-dark pt-6 sm:pt-8 text-center text-xs sm:text-sm text-gray-400">
           <p className="leading-relaxed">
             2025 © All Rights Reserved | U Digital Expert | Designed &
-            Developed by EVER EFFICIENT Business Management (Pvt) Ltd.
+            Developed by{' '}
+            <a href="https://everefficient.lk/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-teal transition-colors underline">
+              EVER EFFICIENT Business Management (Pvt) Ltd.
+            </a>
           </p>
         </div>
       </div>

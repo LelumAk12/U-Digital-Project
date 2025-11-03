@@ -76,7 +76,7 @@ export function ContactSection() {
           <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-dark mb-4">
             Let's Create Together
           </h3>
-          <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4">
+          <p className="text-sm sm:text-base text-gray-700 max-w-2xl mx-auto px-4">
             Ready to bring your vision to life? Contact U Digital Expert Lanka
             for professional videography, photography, and digital marketing
             services.
@@ -96,7 +96,7 @@ export function ContactSection() {
                   <p className="text-brand-dark font-semibold text-sm sm:text-base">
                     076 807 1913
                   </p>
-                  <p className="text-gray-500 text-xs sm:text-sm">
+                  <p className="text-gray-700 text-xs sm:text-sm">
                     Available 24/7 for urgent projects
                   </p>
                 </div>
@@ -114,7 +114,7 @@ export function ContactSection() {
                   <p className="text-brand-dark font-semibold text-xs sm:text-base break-all">
                     info@Uexpert@gmail.com
                   </p>
-                  <p className="text-gray-500 text-xs sm:text-sm">
+                  <p className="text-gray-700 text-xs sm:text-sm">
                     We respond within 24 hours
                   </p>
                 </div>
@@ -132,13 +132,13 @@ export function ContactSection() {
                   <p className="text-brand-dark font-semibold text-sm sm:text-base">
                     Mon - Sun
                   </p>
-                  <p className="text-gray-500 text-xs sm:text-sm">
+                  <p className="text-gray-700 text-xs sm:text-sm">
                     Flexible scheduling available
                   </p>
                 </div>
               </div>
             </div>
-            <div className="bg-gradient-to-br from-brand-teal-dark to-brand-dark text-white p-6 sm:p-8 rounded-lg">
+            <div className="bg-brand-dark text-white p-6 sm:p-8 rounded-lg">
               <h4 className="text-lg sm:text-xl font-bold mb-2">FOLLOW US</h4>
               <p className="text-gray-200 text-xs sm:text-sm mb-4 sm:mb-6">
                 Stay updated with our latest work and behind-the-scenes content.
@@ -188,7 +188,7 @@ export function ContactSection() {
             <h4 className="text-lg sm:text-xl font-bold text-brand-dark mb-2">
               Send us a Message
             </h4>
-            <p className="text-gray-600 text-xs sm:text-sm mb-4 sm:mb-6">
+            <p className="text-gray-700 text-sm mb-4 sm:mb-6">
               Tell us about your project and we will get back to you with a
               customized quote.
             </p>
@@ -200,68 +200,64 @@ export function ContactSection() {
                 <p className="text-sm sm:text-base text-green-600">
                   We'll get back to you within 24 hours.
                 </p>
-              </div> : <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              </div> : <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <label className="block text-base font-medium text-gray-800 mb-2">
+                    Name *
+                  </label>
+                  <input type="text" name="name" value={formData.name} onChange={handleInputChange} required className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all text-base ${errors.name ? 'border-red-500' : 'border-gray-300'}`} />
+                  {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Name *
-                    </label>
-                    <input type="text" name="name" value={formData.name} onChange={handleInputChange} required className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all ${errors.name ? 'border-red-500' : 'border-gray-300'}`} />
-                    {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-base font-medium text-gray-800 mb-2">
                       Email *
                     </label>
-                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} required className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all ${errors.email ? 'border-red-500' : 'border-gray-300'}`} />
+                    <input type="email" name="email" value={formData.email} onChange={handleInputChange} required className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all text-base ${errors.email ? 'border-red-500' : 'border-gray-300'}`} />
                     {errors.email && <p className="text-red-500 text-xs mt-1">
                         {errors.email}
                       </p>}
                   </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-base font-medium text-gray-800 mb-2">
                       Phone *
                     </label>
-                    <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all ${errors.phone ? 'border-red-500' : 'border-gray-300'}`} />
+                    <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all text-base ${errors.phone ? 'border-red-500' : 'border-gray-300'}`} />
                     {errors.phone && <p className="text-red-500 text-xs mt-1">
                         {errors.phone}
                       </p>}
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Service Required *
-                    </label>
-                    <select name="service" value={formData.service} onChange={handleInputChange} required className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all ${errors.service ? 'border-red-500' : 'border-gray-300'}`}>
-                      <option value="">Select a service</option>
-                      <option value="videography">Videography</option>
-                      <option value="photography">Photography</option>
-                      <option value="digital-marketing">
-                        Digital Marketing
-                      </option>
-                      <option value="interview-media">Interview & Media</option>
-                      <option value="design">Design Services</option>
-                      <option value="advertising">Advertising Solutions</option>
-                    </select>
-                    {errors.service && <p className="text-red-500 text-xs mt-1">
-                        {errors.service}
-                      </p>}
-                  </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-base font-medium text-gray-800 mb-2">
+                    Service Required *
+                  </label>
+                  <select name="service" value={formData.service} onChange={handleInputChange} required className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all text-base ${errors.service ? 'border-red-500' : 'border-gray-300'}`}>
+                    <option value="">Select a service</option>
+                    <option value="videography">Videography</option>
+                    <option value="photography">Photography</option>
+                    <option value="digital-marketing">Digital Marketing</option>
+                    <option value="interview-media">Interview & Media</option>
+                    <option value="design">Design Services</option>
+                    <option value="advertising">Advertising Solutions</option>
+                  </select>
+                  {errors.service && <p className="text-red-500 text-xs mt-1">
+                      {errors.service}
+                    </p>}
+                </div>
+                <div>
+                  <label className="block text-base font-medium text-gray-800 mb-2">
                     Message *
                   </label>
-                  <textarea name="message" value={formData.message} onChange={handleInputChange} rows={4} required className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all ${errors.message ? 'border-red-500' : 'border-gray-300'}`}></textarea>
+                  <textarea name="message" value={formData.message} onChange={handleInputChange} rows={5} required className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-all text-base ${errors.message ? 'border-red-500' : 'border-gray-300'}`}></textarea>
                   {errors.message && <p className="text-red-500 text-xs mt-1">
                       {errors.message}
                     </p>}
                 </div>
-                <button type="submit" disabled={isSubmitting} className="w-full bg-brand-teal hover:bg-brand-hover text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-medium transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base">
+                <button type="submit" disabled={isSubmitting} className="w-full bg-brand-teal hover:bg-brand-hover text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-md font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed text-base">
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
-                <p className="text-xs text-gray-500 text-center">
+                <p className="text-xs text-gray-700 text-center">
                   We respect your privacy and will never share your information.
                 </p>
               </form>}

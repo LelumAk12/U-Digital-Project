@@ -35,13 +35,13 @@ export function WorkSection() {
           <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold text-brand-dark mb-6">
             Success Stories
           </h3>
-          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto px-4 leading-relaxed">
             Explore our portfolio of successful campaigns and projects that have
             helped brands achieve their goals and exceed expectations.
           </p>
         </div>
-        <div className="flex justify-center gap-4 sm:gap-5 mb-8 sm:mb-10 overflow-x-auto pb-2 scrollbar-hide">
-          {tabs.map(tab => <button key={tab} onClick={() => setActiveTab(tab)} className={`px-6 sm:px-8 py-3 sm:py-4 rounded-full whitespace-nowrap transition-all text-base sm:text-lg font-medium ${activeTab === tab ? 'bg-brand-teal text-white' : 'bg-brand-cyan-light text-brand-dark hover:bg-opacity-80'}`}>
+        <div className="flex justify-start sm:justify-center gap-2 mb-8 sm:mb-10 overflow-x-auto pb-2 px-2">
+          {tabs.map(tab => <button key={tab} onClick={() => setActiveTab(tab)} className={`px-2 sm:px-6 py-1.5 sm:py-3 rounded-md whitespace-nowrap transition-all text-[10px] sm:text-base font-medium flex-shrink-0 ${activeTab === tab ? 'bg-brand-teal text-white' : 'bg-brand-cyan-light text-brand-dark hover:bg-opacity-80'}`}>
               {tab}
             </button>)}
         </div>
@@ -49,7 +49,7 @@ export function WorkSection() {
           {projects.map((project, index) => <ProjectCard key={index} {...project} />)}
         </div>
         <div className="text-center mt-12 sm:mt-16">
-          <button className="bg-brand-teal hover:bg-brand-hover text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full font-medium transition-all text-base sm:text-lg">
+          <button className="bg-brand-teal hover:bg-brand-hover text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-md font-medium transition-all text-sm sm:text-base">
             View All Projects
           </button>
         </div>

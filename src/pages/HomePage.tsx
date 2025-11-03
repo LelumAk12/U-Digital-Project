@@ -8,6 +8,7 @@ import { AboutSection } from '../components/AboutSection';
 import { WorkSection } from '../components/WorkSection';
 import { ContactSection } from '../components/ContactSection';
 import { Footer } from '../components/Footer';
+import { ScrollToTopButton } from '../components/ScrollToTopButton';
 export function HomePage() {
   return <div className="w-full min-h-screen">
       <Header />
@@ -27,5 +28,6 @@ export function HomePage() {
         <ContactSection />
       </div>
       <Footer />
+      <ScrollToTopButton />
     </div>;
 }

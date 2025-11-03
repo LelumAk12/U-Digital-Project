@@ -1,4 +1,4 @@
-import React, { useState, createElement } from 'react';
+import React, { useEffect, useState, createElement } from 'react';
 import { CheckIcon, ArrowLeftIcon, XIcon, CreditCardIcon, LockIcon } from 'lucide-react';
 interface OrderFormProps {
   selectedPackage: any;
@@ -29,6 +29,13 @@ export function OrderForm({
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [paymentErrors, setPaymentErrors] = useState<Record<string, string>>({});
+  // Scroll to top whenever step changes
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, [step]);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
@@ -43,15 +50,12 @@ export function OrderForm({
   };
   const handlePaymentInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     let value = e.target.value;
-    // Format card number with spaces
     if (e.target.name === 'cardNumber') {
       value = value.replace(/\s/g, '').replace(/(\d{4})/g, '$1 ').trim();
     }
-    // Format expiry date
     if (e.target.name === 'expiryDate') {
       value = value.replace(/\D/g, '').replace(/(\d{2})(\d{0,2})/, '$1/$2').substring(0, 5);
     }
-    // Limit CVV to 3 digits
     if (e.target.name === 'cvv') {
       value = value.replace(/\D/g, '').substring(0, 3);
     }
@@ -143,6 +147,11 @@ export function OrderForm({
       setShowConfirmationModal(true);
     }
   };
+  const handleModalBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      setShowPaymentModal(false);
+    }
+  };
   const PackageSummary = () => <div className="bg-white border-2 border-gray-200 rounded-xl p-6 sm:p-8 lg:h-fit lg:sticky lg:top-6">
       <div className="flex items-start gap-4 sm:gap-5 mb-6 sm:mb-8">
         <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple rounded-2xl flex items-center justify-center flex-shrink-0">
@@ -154,13 +163,13 @@ export function OrderForm({
           <h3 className="text-xl sm:text-2xl font-bold text-brand-dark mb-2">
             {selectedPackage.title}
           </h3>
-          <p className="text-sm sm:text-base text-gray-600">
+          <p className="text-base sm:text-lg text-gray-600">
             {selectedPackage.description}
           </p>
         </div>
       </div>
       <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-        {selectedPackage.features.map((feature: string, index: number) => <li key={index} className="flex items-start gap-3 text-sm sm:text-base text-gray-700">
+        {selectedPackage.features.map((feature: string, index: number) => <li key={index} className="flex items-start gap-3 text-base sm:text-lg text-gray-700">
             <CheckIcon className="w-5 h-5 sm:w-6 sm:h-6 text-brand-teal flex-shrink-0 mt-0.5" />
             <span>{feature}</span>
           </li>)}
@@ -191,15 +200,15 @@ export function OrderForm({
             Back to Packages
           </button>
           <div className="flex items-center justify-center gap-3 sm:gap-5 mb-8 sm:mb-10 overflow-x-auto pb-2">
-            <div className={`flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-full text-base sm:text-lg font-bold ${step >= 1 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
+            <div className={`flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-full text-base sm:text-lg font-bold ${step >= 1 ? 'bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple text-white' : 'bg-gray-200 text-gray-600'}`}>
               1
             </div>
-            <div className={`h-0.5 w-10 sm:w-20 ${step >= 2 ? 'bg-gradient-to-r from-brand-maroon to-brand-blue' : 'bg-gray-200'}`}></div>
-            <div className={`flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-full text-base sm:text-lg font-bold ${step >= 2 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
+            <div className={`h-0.5 w-10 sm:w-20 ${step >= 2 ? 'bg-gradient-to-r from-brand-icon-dark to-brand-icon-purple' : 'bg-gray-200'}`}></div>
+            <div className={`flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-full text-base sm:text-lg font-bold ${step >= 2 ? 'bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple text-white' : 'bg-gray-200 text-gray-600'}`}>
               2
             </div>
-            <div className={`h-0.5 w-10 sm:w-20 ${step >= 3 ? 'bg-gradient-to-r from-brand-maroon to-brand-blue' : 'bg-gray-200'}`}></div>
-            <div className={`flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-full text-base sm:text-lg font-bold ${step >= 3 ? 'bg-gradient-to-br from-brand-maroon to-brand-blue text-white' : 'bg-gray-200 text-gray-600'}`}>
+            <div className={`h-0.5 w-10 sm:w-20 ${step >= 3 ? 'bg-gradient-to-r from-brand-icon-dark to-brand-icon-purple' : 'bg-gray-200'}`}></div>
+            <div className={`flex items-center justify-center w-10 h-10 sm:w-14 sm:h-14 rounded-full text-base sm:text-lg font-bold ${step >= 3 ? 'bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple text-white' : 'bg-gray-200 text-gray-600'}`}>
               3
             </div>
           </div>
@@ -216,61 +225,57 @@ export function OrderForm({
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-base font-medium text-gray-700 mb-3">
+                    <label className="block text-base font-medium text-gray-800 mb-2">
                       First Name*
                     </label>
                     <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-base ${errors.firstName ? 'border-red-500' : 'border-gray-300'}`} />
-                    {errors.firstName && <p className="text-red-500 text-sm mt-2 bg-red-50 p-2 rounded">
+                    {errors.firstName && <p className="text-red-500 text-xs mt-1">
                         {errors.firstName}
                       </p>}
                   </div>
                   <div>
-                    <label className="block text-base font-medium text-gray-700 mb-3">
+                    <label className="block text-base font-medium text-gray-800 mb-2">
                       Last Name*
                     </label>
                     <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-base ${errors.lastName ? 'border-red-500' : 'border-gray-300'}`} />
-                    {errors.lastName && <p className="text-red-500 text-sm mt-2 bg-red-50 p-2 rounded">
+                    {errors.lastName && <p className="text-red-500 text-xs mt-1">
                         {errors.lastName}
                       </p>}
                   </div>
                 </div>
                 <div>
-                  <label className="block text-base font-medium text-gray-700 mb-3">
+                  <label className="block text-base font-medium text-gray-800 mb-2">
                     Email Address*
                   </label>
-                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-base ${errors.email ? 'border-red-500' : 'border-gray-300'}`} />
-                  {errors.email && <p className="text-red-500 text-sm mt-2 bg-red-50 p-2 rounded">
-                      {errors.email}
-                    </p>}
+                  <input type="email" name="email" value={formData.email} onChange={handleInputChange} required className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-base ${errors.email ? 'border-red-500' : 'border-gray-300'}`} />
+                  {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
                 </div>
                 <div>
-                  <label className="block text-base font-medium text-gray-700 mb-3">
+                  <label className="block text-base font-medium text-gray-800 mb-2">
                     Phone Number
                   </label>
-                  <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-base ${errors.phone ? 'border-red-500' : 'border-gray-300'}`} />
-                  {errors.phone && <p className="text-red-500 text-sm mt-2 bg-red-50 p-2 rounded">
-                      {errors.phone}
-                    </p>}
+                  <input type="tel" name="phone" value={formData.phone} onChange={handleInputChange} required className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-base ${errors.phone ? 'border-red-500' : 'border-gray-300'}`} />
+                  {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
                 </div>
                 <div>
-                  <label className="block text-base font-medium text-gray-700 mb-3">
+                  <label className="block text-base font-medium text-gray-800 mb-2">
                     Company Name*
                   </label>
                   <input type="text" name="company" value={formData.company} onChange={handleInputChange} className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-base ${errors.company ? 'border-red-500' : 'border-gray-300'}`} />
-                  {errors.company && <p className="text-red-500 text-sm mt-2 bg-red-50 p-2 rounded">
+                  {errors.company && <p className="text-red-500 text-xs mt-1">
                       {errors.company}
                     </p>}
                 </div>
                 <div>
-                  <label className="block text-base font-medium text-gray-700 mb-3">
+                  <label className="block text-base font-medium text-gray-800 mb-2">
                     Industry
                   </label>
                   <input type="text" name="industry" value={formData.industry} onChange={handleInputChange} className={`w-full px-5 py-4 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-base ${errors.industry ? 'border-red-500' : 'border-gray-300'}`} />
-                  {errors.industry && <p className="text-red-500 text-sm mt-2 bg-red-50 p-2 rounded">
+                  {errors.industry && <p className="text-red-500 text-xs mt-1">
                       {errors.industry}
                     </p>}
                 </div>
-                <button type="submit" className="w-full bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-4 sm:py-5 rounded-lg hover:opacity-90 font-medium text-base sm:text-lg">
+                <button type="submit" className="w-full bg-brand-teal text-white py-3 sm:py-3.5 rounded-md hover:bg-brand-teal-dark font-medium text-base">
                   Continue to Review
                 </button>
               </form>
@@ -295,10 +300,10 @@ export function OrderForm({
                   </p>}
               </div>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <button onClick={() => setStep(1)} className="w-full sm:flex-1 bg-white text-brand-teal border border-brand-teal py-2.5 sm:py-3 rounded-lg hover:bg-brand-cyan-light font-medium text-sm sm:text-base">
+                <button onClick={() => setStep(1)} className="w-full sm:flex-1 bg-white text-brand-teal border border-brand-teal py-2 sm:py-2.5 rounded-md hover:bg-brand-cyan-light font-medium text-sm">
                   Back
                 </button>
-                <button onClick={handleSubmit} className="w-full sm:flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium text-sm sm:text-base">
+                <button onClick={handleSubmit} className="w-full sm:flex-1 bg-brand-teal text-white py-2 sm:py-2.5 rounded-md hover:bg-brand-teal-dark font-medium text-sm">
                   Continue to Order Summary
                 </button>
               </div>
@@ -400,103 +405,102 @@ export function OrderForm({
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6">
-                <button onClick={() => setStep(2)} className="w-full sm:flex-1 bg-white text-brand-teal border border-brand-teal py-2.5 sm:py-3 rounded-lg hover:bg-brand-cyan-light font-medium text-sm sm:text-base">
+                <button onClick={() => setStep(2)} className="w-full sm:flex-1 bg-white text-brand-teal border border-brand-teal py-2 sm:py-2.5 rounded-md hover:bg-brand-cyan-light font-medium text-sm">
                   Back to Project Details
                 </button>
-                <button onClick={() => setShowPaymentModal(true)} className="w-full sm:flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium text-sm sm:text-base">
+                <button onClick={() => setShowPaymentModal(true)} className="w-full sm:flex-1 bg-brand-teal text-white py-2 sm:py-2.5 rounded-md hover:bg-brand-teal-dark font-medium text-sm">
                   Proceed to Payment
                 </button>
               </div>
             </div>
           </div>}
-        {showPaymentModal && <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 overflow-y-auto">
-            <div className="bg-white rounded-lg p-6 sm:p-8 max-w-md w-full my-8 animate-scaleIn">
-              <div className="flex justify-between items-start mb-6">
+        {showPaymentModal && <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-3 overflow-y-auto" onClick={handleModalBackdropClick}>
+            <div className="bg-white rounded-lg p-4 sm:p-6 max-w-lg w-full my-4 animate-scaleIn max-h-[95vh] overflow-y-auto">
+              <div className="flex justify-between items-start mb-3">
                 <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-brand-dark mb-2">
+                  <h3 className="text-base sm:text-xl font-bold text-brand-dark mb-1">
                     Payment Details
                   </h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-xs text-gray-600">
                     Enter your payment information securely
                   </p>
                 </div>
                 <button onClick={() => setShowPaymentModal(false)} className="text-gray-400 hover:text-gray-600">
-                  <XIcon className="w-6 h-6" />
+                  <XIcon className="w-5 h-5" />
                 </button>
               </div>
-              <div className="bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white p-4 rounded-lg mb-6">
-                <div className="flex items-center gap-2 mb-3">
-                  <CreditCardIcon className="w-5 h-5" />
-                  <span className="text-sm font-medium">Amount to Pay</span>
+              <div className="bg-gradient-to-br from-brand-icon-dark to-brand-icon-purple text-white p-3 rounded-lg mb-3">
+                <div className="flex items-center gap-2 mb-1">
+                  <CreditCardIcon className="w-4 h-4" />
+                  <span className="text-xs font-medium">Amount to Pay</span>
                 </div>
-                <div className="text-3xl font-bold">
+                <div className="text-xl sm:text-2xl font-bold">
                   {selectedPackage.price} LKR
                 </div>
-                <div className="text-sm text-gray-200 mt-1">
+                <div className="text-xs text-gray-200 mt-1">
                   {selectedPackage.period}
                 </div>
               </div>
-              <div className="space-y-4">
+              <div className="space-y-2.5">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-xs font-medium text-gray-700 mb-1">
                     Card Number *
                   </label>
-                  <input type="text" name="cardNumber" value={paymentData.cardNumber} onChange={handlePaymentInputChange} placeholder="1234 5678 9012 3456" maxLength={19} className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent ${paymentErrors.cardNumber ? 'border-red-500' : 'border-gray-300'}`} />
+                  <input type="text" name="cardNumber" value={paymentData.cardNumber} onChange={handlePaymentInputChange} placeholder="1234 5678 9012 3456" maxLength={19} className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-sm ${paymentErrors.cardNumber ? 'border-red-500' : 'border-gray-300'}`} />
                   {paymentErrors.cardNumber && <p className="text-red-500 text-xs mt-1">
                       {paymentErrors.cardNumber}
                     </p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-xs font-medium text-gray-700 mb-1">
                     Cardholder Name *
                   </label>
-                  <input type="text" name="cardName" value={paymentData.cardName} onChange={handlePaymentInputChange} placeholder="John Doe" className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent ${paymentErrors.cardName ? 'border-red-500' : 'border-gray-300'}`} />
+                  <input type="text" name="cardName" value={paymentData.cardName} onChange={handlePaymentInputChange} placeholder="John Doe" className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-sm ${paymentErrors.cardName ? 'border-red-500' : 'border-gray-300'}`} />
                   {paymentErrors.cardName && <p className="text-red-500 text-xs mt-1">
                       {paymentErrors.cardName}
                     </p>}
                 </div>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-2.5">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs font-medium text-gray-700 mb-1">
                       Expiry Date *
                     </label>
-                    <input type="text" name="expiryDate" value={paymentData.expiryDate} onChange={handlePaymentInputChange} placeholder="MM/YY" maxLength={5} className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent ${paymentErrors.expiryDate ? 'border-red-500' : 'border-gray-300'}`} />
+                    <input type="text" name="expiryDate" value={paymentData.expiryDate} onChange={handlePaymentInputChange} placeholder="MM/YY" maxLength={5} className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-sm ${paymentErrors.expiryDate ? 'border-red-500' : 'border-gray-300'}`} />
                     {paymentErrors.expiryDate && <p className="text-red-500 text-xs mt-1">
                         {paymentErrors.expiryDate}
                       </p>}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-xs font-medium text-gray-700 mb-1">
                       CVV *
                     </label>
-                    <input type="text" name="cvv" value={paymentData.cvv} onChange={handlePaymentInputChange} placeholder="123" maxLength={3} className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent ${paymentErrors.cvv ? 'border-red-500' : 'border-gray-300'}`} />
+                    <input type="text" name="cvv" value={paymentData.cvv} onChange={handlePaymentInputChange} placeholder="123" maxLength={3} className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-sm ${paymentErrors.cvv ? 'border-red-500' : 'border-gray-300'}`} />
                     {paymentErrors.cvv && <p className="text-red-500 text-xs mt-1">
                         {paymentErrors.cvv}
                       </p>}
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-xs font-medium text-gray-700 mb-1">
                     Billing Address *
                   </label>
-                  <textarea name="billingAddress" value={paymentData.billingAddress} onChange={handlePaymentInputChange} placeholder="Enter your billing address" rows={3} className={`w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent ${paymentErrors.billingAddress ? 'border-red-500' : 'border-gray-300'}`}></textarea>
+                  <textarea name="billingAddress" value={paymentData.billingAddress} onChange={handlePaymentInputChange} placeholder="Enter your billing address" rows={2} className={`w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent text-sm ${paymentErrors.billingAddress ? 'border-red-500' : 'border-gray-300'}`}></textarea>
                   {paymentErrors.billingAddress && <p className="text-red-500 text-xs mt-1">
                       {paymentErrors.billingAddress}
                     </p>}
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg flex items-start gap-3">
-                  <LockIcon className="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" />
+                <div className="bg-gray-50 p-2.5 rounded-lg flex items-start gap-2">
+                  <LockIcon className="w-3.5 h-3.5 text-brand-teal flex-shrink-0 mt-0.5" />
                   <p className="text-xs text-gray-600">
-                    Your payment information is encrypted and secure. We use
-                    industry-standard security measures to protect your data.
+                    Your payment information is encrypted and secure.
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col sm:flex-row gap-3 mt-6">
-                <button onClick={() => setShowPaymentModal(false)} className="w-full sm:flex-1 bg-white text-brand-teal border border-brand-teal py-2.5 rounded-lg hover:bg-brand-cyan-light font-medium text-sm">
+              <div className="flex flex-col gap-2 mt-3">
+                <button onClick={() => setShowPaymentModal(false)} className="w-full bg-white text-brand-teal border border-brand-teal py-2 rounded-md hover:bg-brand-cyan-light font-medium text-sm">
                   Cancel
                 </button>
-                <button onClick={handlePaymentSubmit} className="w-full sm:flex-1 bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 rounded-lg hover:opacity-90 font-medium text-sm flex items-center justify-center gap-2">
+                <button onClick={handlePaymentSubmit} className="w-full bg-brand-teal text-white py-2 rounded-md hover:bg-brand-teal-dark font-medium text-sm flex items-center justify-center gap-2">
                   <LockIcon className="w-4 h-4" />
                   Pay {selectedPackage.price} LKR
                 </button>
@@ -548,7 +552,7 @@ export function OrderForm({
               <button onClick={() => {
             setShowConfirmationModal(false);
             window.location.href = '/';
-          }} className="w-full bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 rounded-lg hover:opacity-90 font-medium text-sm">
+          }} className="w-full bg-brand-teal text-white py-2 rounded-md hover:bg-brand-teal-dark font-medium text-sm">
                 Return to Home
               </button>
               <p className="text-xs text-gray-500 mt-4 text-center">

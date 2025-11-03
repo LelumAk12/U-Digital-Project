@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { ScrollToTopButton } from '../components/ScrollToTopButton';
 import { CalendarIcon, UsersIcon, TrendingUpIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 export function PortfolioDetailPage() {
@@ -33,7 +34,7 @@ export function PortfolioDetailPage() {
           <h1 className="text-4xl font-bold text-brand-dark mb-4 text-center">
             TECHSTART REBRANDING SUCCESS
           </h1>
-          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-700 text-center mb-12 max-w-2xl mx-auto">
             How we transformed a growing tech startup's brand identity and
             increased their market recognition by 150%
           </p>
@@ -42,7 +43,7 @@ export function PortfolioDetailPage() {
               <img src="/2.jpg" alt="TechStart project" className="w-full rounded-lg shadow-lg" />
               <div className="mt-6">
                 <Link to="/pricing">
-                  <button className="w-full bg-gradient-to-br from-brand-teal to-brand-teal-dark text-white py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium transition-opacity text-sm sm:text-base">
+                  <button className="w-full bg-brand-teal text-white py-3 sm:py-3.5 rounded-lg hover:opacity-90 font-medium transition-opacity text-base">
                     Start Your Project
                   </button>
                 </Link>
@@ -58,7 +59,7 @@ export function PortfolioDetailPage() {
                     Project Timeline
                   </h3>
                 </div>
-                <p className="text-gray-600 text-sm">March - April 2024</p>
+                <p className="text-gray-700 text-sm">March - April 2024</p>
               </div>
               <div className="bg-white border border-gray-200 p-6 rounded-lg">
                 <div className="flex items-center gap-3 mb-4">
@@ -67,7 +68,7 @@ export function PortfolioDetailPage() {
                   </div>
                   <h3 className="font-bold text-brand-dark">Team Size</h3>
                 </div>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-700 text-sm">
                   5 specialists - Videographer, Photographer, Marketing Expert
                 </p>
               </div>
@@ -79,7 +80,7 @@ export function PortfolioDetailPage() {
                   <h3 className="font-bold text-brand-dark">Results</h3>
                 </div>
                 <p className="text-2xl font-bold text-brand-teal mb-1">+150%</p>
-                <p className="text-gray-600 text-sm">
+                <p className="text-gray-700 text-sm">
                   Brand Recognition Increase
                 </p>
               </div>
@@ -90,13 +91,13 @@ export function PortfolioDetailPage() {
               <h3 className="text-2xl font-bold text-brand-dark mb-4">
                 The Challenge
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-700 mb-4">
                 TechStart was struggling with brand recognition in a competitive
                 market. Their outdated visual identity and lack of cohesive
                 marketing strategy were limiting their growth potential.
               </p>
               <ul className="space-y-2">
-                {challenges.map((challenge, index) => <li key={index} className="text-gray-700 flex items-start gap-2">
+                {challenges.map((challenge, index) => <li key={index} className="text-gray-800 flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-brand-teal rounded-full mt-2 flex-shrink-0"></span>
                     <span>{challenge}</span>
                   </li>)}
@@ -106,13 +107,13 @@ export function PortfolioDetailPage() {
               <h3 className="text-2xl font-bold text-brand-dark mb-4">
                 Our Solution
               </h3>
-              <p className="text-gray-600 mb-4">
+              <p className="text-gray-700 mb-4">
                 We developed a comprehensive rebranding strategy that included
                 new visual identity, promotional videos, and digital marketing
                 campaigns to establish strong market presence.
               </p>
               <ul className="space-y-2">
-                {solutions.map((solution, index) => <li key={index} className="text-gray-700 flex items-start gap-2">
+                {solutions.map((solution, index) => <li key={index} className="text-gray-800 flex items-start gap-2">
                     <span className="w-1.5 h-1.5 bg-brand-teal rounded-full mt-2 flex-shrink-0"></span>
                     <span>{solution}</span>
                   </li>)}
@@ -128,11 +129,11 @@ export function PortfolioDetailPage() {
                   <h4 className="font-bold text-brand-dark mb-2">
                     {service.title}
                   </h4>
-                  <p className="text-gray-600 text-sm">{service.description}</p>
+                  <p className="text-gray-700 text-sm">{service.description}</p>
                 </div>)}
             </div>
           </div>
-          <div className="bg-gradient-to-br from-brand-dark to-brand-teal-dark text-white p-12 rounded-lg mb-12">
+          <div className="bg-brand-dark text-white p-12 rounded-lg mb-12">
             <h3 className="text-3xl font-bold mb-8 text-center">
               Project Impact
             </h3>
@@ -147,18 +148,18 @@ export function PortfolioDetailPage() {
             <h3 className="text-3xl font-bold text-brand-dark mb-4">
               Ready to Start Your Project?
             </h3>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-gray-700 mb-8 max-w-2xl mx-auto">
               Contact us today for a free consultation. Call 076 807 1913 or
               visit our social media pages for more information.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
               <Link to="/pricing">
-                <button className="w-full sm:w-auto bg-brand-teal text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium transition-opacity text-sm sm:text-base">
+                <button className="w-full sm:w-auto bg-brand-teal text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-lg hover:opacity-90 font-medium transition-opacity text-base">
                   Start Your Project
                 </button>
               </Link>
               <Link to="/">
-                <button className="w-full sm:w-auto bg-brand-coral text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg hover:opacity-90 font-medium border-2 border-brand-coral transition-opacity text-sm sm:text-base">
+                <button className="w-full sm:w-auto bg-brand-coral text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-lg hover:opacity-90 font-medium border-2 border-brand-coral transition-opacity text-base">
                   View Our Work
                 </button>
               </Link>
@@ -167,5 +168,6 @@ export function PortfolioDetailPage() {
         </div>
       </section>
       <Footer />
+      <ScrollToTopButton />
     </div>;
 }

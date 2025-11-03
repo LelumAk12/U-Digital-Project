@@ -10,15 +10,8 @@ export function Header() {
     e.preventDefault();
     setMobileMenuOpen(false);
     if (isHomePage) {
-      const element = document.querySelector(sectionId);
-      if (element) {
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    } else {
-      navigate('/');
+      // Scroll to top first, then to section
+      window.scrollTo(0, 0);
       setTimeout(() => {
         const element = document.querySelector(sectionId);
         if (element) {
@@ -27,6 +20,20 @@ export function Header() {
             block: 'start'
           });
         }
+      }, 100);
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+          const element = document.querySelector(sectionId);
+          if (element) {
+            element.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }, 100);
       }, 100);
     }
   };
@@ -40,12 +47,6 @@ export function Header() {
       });
     } else {
       navigate('/');
-      setTimeout(() => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }, 100);
     }
   };
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -58,12 +59,6 @@ export function Header() {
       });
     } else {
       navigate('/');
-      setTimeout(() => {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth'
-        });
-      }, 100);
     }
   };
   return <>
@@ -87,8 +82,8 @@ export function Header() {
       </div>
       <header className="w-full bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
-          <a href="/" onClick={handleLogoClick} className="flex items-center gap-2 cursor-pointer">
-            <div className="w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-br from-pink-400 to-orange-400 rounded"></div>
+          <a href="/" onClick={handleLogoClick} className="flex items-center gap-3 cursor-pointer">
+            <img src="/favicon.png" alt="U Digital Logo" className="w-8 h-8 sm:w-10 sm:h-10" />
             <span className="text-lg sm:text-xl font-bold text-brand-dark">
               U DIGITAL
             </span>
@@ -96,48 +91,48 @@ export function Header() {
           <button className="md:hidden text-brand-dark p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <XIcon className="w-6 h-6" /> : <MenuIcon className="w-6 h-6" />}
           </button>
-          <nav className="hidden md:flex gap-6 lg:gap-8 items-center justify-center flex-1">
-            <a href="/" onClick={handleHomeClick} className="text-sm lg:text-base text-gray-700 hover:text-brand-teal transition-colors cursor-pointer">
+          <nav className="hidden md:flex gap-8 lg:gap-10 items-center justify-center flex-1">
+            <a href="/" onClick={handleHomeClick} className="text-base lg:text-lg text-gray-800 hover:text-brand-teal transition-colors cursor-pointer font-medium">
               Home
             </a>
-            <a href="#services" onClick={e => handleNavClick(e, '#services')} className="text-sm lg:text-base text-gray-700 hover:text-brand-teal transition-colors cursor-pointer">
+            <a href="#services" onClick={e => handleNavClick(e, '#services')} className="text-base lg:text-lg text-gray-800 hover:text-brand-teal transition-colors cursor-pointer font-medium">
               Services
             </a>
-            <a href="#about" onClick={e => handleNavClick(e, '#about')} className="text-sm lg:text-base text-gray-700 hover:text-brand-teal transition-colors cursor-pointer">
+            <a href="#about" onClick={e => handleNavClick(e, '#about')} className="text-base lg:text-lg text-gray-800 hover:text-brand-teal transition-colors cursor-pointer font-medium">
               About
             </a>
-            <a href="#portfolio" onClick={e => handleNavClick(e, '#portfolio')} className="text-sm lg:text-base text-gray-700 hover:text-brand-teal transition-colors cursor-pointer">
+            <a href="#portfolio" onClick={e => handleNavClick(e, '#portfolio')} className="text-base lg:text-lg text-gray-800 hover:text-brand-teal transition-colors cursor-pointer font-medium">
               Portfolio
             </a>
-            <a href="#contact" onClick={e => handleNavClick(e, '#contact')} className="text-sm lg:text-base text-gray-700 hover:text-brand-teal transition-colors cursor-pointer">
+            <a href="#contact" onClick={e => handleNavClick(e, '#contact')} className="text-base lg:text-lg text-gray-800 hover:text-brand-teal transition-colors cursor-pointer font-medium">
               Contact
             </a>
           </nav>
           <Link to="/pricing" className="hidden md:block">
-            <button className="bg-brand-teal text-white px-4 lg:px-6 py-2 rounded-full text-sm lg:text-base hover:bg-brand-hover transition-all hover:scale-105">
+            <button className="bg-brand-teal text-white px-5 lg:px-6 py-2 sm:py-2.5 rounded-md text-sm hover:bg-brand-hover transition-all">
               Get Started
             </button>
           </Link>
         </div>
         {mobileMenuOpen && <div className="md:hidden bg-white border-t border-gray-200 py-4 px-4 animate-fadeIn">
             <nav className="flex flex-col gap-4">
-              <a href="/" onClick={handleHomeClick} className="text-gray-700 hover:text-brand-teal transition-colors py-2 text-base">
+              <a href="/" onClick={handleHomeClick} className="text-gray-800 hover:text-brand-teal transition-colors py-2 text-base font-medium">
                 Home
               </a>
-              <a href="#services" onClick={e => handleNavClick(e, '#services')} className="text-gray-700 hover:text-brand-teal transition-colors py-2 text-base">
+              <a href="#services" onClick={e => handleNavClick(e, '#services')} className="text-gray-800 hover:text-brand-teal transition-colors py-2 text-base font-medium">
                 Services
               </a>
-              <a href="#about" onClick={e => handleNavClick(e, '#about')} className="text-gray-700 hover:text-brand-teal transition-colors py-2 text-base">
+              <a href="#about" onClick={e => handleNavClick(e, '#about')} className="text-gray-800 hover:text-brand-teal transition-colors py-2 text-base font-medium">
                 About
               </a>
-              <a href="#portfolio" onClick={e => handleNavClick(e, '#portfolio')} className="text-gray-700 hover:text-brand-teal transition-colors py-2 text-base">
+              <a href="#portfolio" onClick={e => handleNavClick(e, '#portfolio')} className="text-gray-800 hover:text-brand-teal transition-colors py-2 text-base font-medium">
                 Portfolio
               </a>
-              <a href="#contact" onClick={e => handleNavClick(e, '#contact')} className="text-gray-700 hover:text-brand-teal transition-colors py-2 text-base">
+              <a href="#contact" onClick={e => handleNavClick(e, '#contact')} className="text-gray-800 hover:text-brand-teal transition-colors py-2 text-base font-medium">
                 Contact
               </a>
               <Link to="/pricing" onClick={() => setMobileMenuOpen(false)}>
-                <button className="w-full bg-brand-teal text-white px-6 py-3 rounded-full hover:bg-brand-hover transition-all text-base">
+                <button className="w-full bg-brand-teal text-white px-6 py-2.5 rounded-md hover:bg-brand-hover transition-all text-base">
                   Get Started
                 </button>
               </Link>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
+import { ScrollToTopButton } from '../components/ScrollToTopButton';
 import { PricingCard } from '../components/PricingCard';
 import { OrderForm } from '../components/OrderForm';
 import { TrendingUpIcon, LightbulbIcon, SparklesIcon } from 'lucide-react';
@@ -62,5 +63,6 @@ export function PricingPage() {
           </div>
         </section>}
       <Footer />
+      <ScrollToTopButton />
     </div>;
 }
